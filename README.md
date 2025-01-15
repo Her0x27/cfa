@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-01-15 13:08:37 UTC
+Last update: 2025-01-15 21:22:46 UTC
 
 ## Quick Start
 
@@ -32,6 +32,10 @@ chmod +x load-networks.sh
 ```
 
 ## Available Company Lists
+## GitHub
+- IPv4 Networks: 28 ([github.ipset](networks/ipv4/github.ipset))
+- IPv6 Networks: 5 ([github.ipset](networks/ipv6/github.ipset))
+
 ## Anthropic
 - IPv4 Networks: 4 ([anthropic.ipset](networks/ipv4/anthropic.ipset))
 - IPv6 Networks: 2 ([anthropic.ipset](networks/ipv6/anthropic.ipset))
@@ -83,9 +87,14 @@ chmod +x load-networks.sh
 - IPv4 Networks: 79 ([twitter.ipset](networks/ipv4/twitter.ipset))
 - IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
 
+## Facebook
+- IPv4 Networks: 516 ([facebook.ipset](networks/ipv4/facebook.ipset))
+- IPv6 Networks: 255 ([facebook.ipset](networks/ipv6/facebook.ipset))
+
 ## Summary
-- Total IPv4 Networks: 1478
-- Total IPv6 Networks: 568
+- Total IPv4 Networks: 2022
+- Total IPv6 Networks: 828
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)
+#### Information collected by Netblock Tool
