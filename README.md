@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-01-15 10:51:24 UTC
+Last update: 2025-01-15 12:51:27 UTC
 
 ## Quick Start
 
@@ -49,9 +49,10 @@ chmod +x load-networks.sh
 - IPv6 Networks: 0
 0 ([discord.ipset](networks/ipv6/discord.ipset))
 
-## Valve
-- IPv4 Networks: 82 ([valve.ipset](networks/ipv4/valve.ipset))
-- IPv6 Networks: 37 ([valve.ipset](networks/ipv6/valve.ipset))
+## Valve Corporation
+- IPv4 Networks: 4 ([valve_corporation.ipset](networks/ipv4/valve_corporation.ipset))
+- IPv6 Networks: 0
+0 ([valve_corporation.ipset](networks/ipv6/valve_corporation.ipset))
 
 ## YouTube
 - IPv4 Networks: 40 ([youtube.ipset](networks/ipv4/youtube.ipset))
@@ -74,13 +75,59 @@ chmod +x load-networks.sh
 - IPv4 Networks: 9 ([blizzard_entertainment.ipset](networks/ipv4/blizzard_entertainment.ipset))
 - IPv6 Networks: 1 ([blizzard_entertainment.ipset](networks/ipv6/blizzard_entertainment.ipset))
 
-## YouTube
-- IPv4 Networks: 40 ([youtube.ipset](networks/ipv4/youtube.ipset))
-- IPv6 Networks: 24 ([youtube.ipset](networks/ipv6/youtube.ipset))
+## Netflix
+- IPv4 Networks: 176 ([netflix.ipset](networks/ipv4/netflix.ipset))
+- IPv6 Networks: 40 ([netflix.ipset](networks/ipv6/netflix.ipset))
+
+## Twitter
+- IPv4 Networks: 79 ([twitter.ipset](networks/ipv4/twitter.ipset))
+- IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
+
+## X Corp
+- IPv4 Networks: 0
+0 ([x_corp.ipset](networks/ipv4/x_corp.ipset))
+- IPv6 Networks: 0
+0 ([x_corp.ipset](networks/ipv6/x_corp.ipset))
+
+## The Pirate Bay
+- IPv4 Networks: 0
+0 ([the_pirate_bay.ipset](networks/ipv4/the_pirate_bay.ipset))
+- IPv6 Networks: 0
+0 ([the_pirate_bay.ipset](networks/ipv6/the_pirate_bay.ipset))
+
+## 1337x
+- IPv4 Networks: 0
+0 ([1337x.ipset](networks/ipv4/1337x.ipset))
+- IPv6 Networks: 0
+0 ([1337x.ipset](networks/ipv6/1337x.ipset))
+
+## RuTracker
+- IPv4 Networks: 0
+0 ([rutracker.ipset](networks/ipv4/rutracker.ipset))
+- IPv6 Networks: 0
+0 ([rutracker.ipset](networks/ipv6/rutracker.ipset))
+
+## HDOnline
+- IPv4 Networks: 0
+0 ([hdonline.ipset](networks/ipv4/hdonline.ipset))
+- IPv6 Networks: 0
+0 ([hdonline.ipset](networks/ipv6/hdonline.ipset))
+
+## LocalBitcoins
+- IPv4 Networks: 0
+0 ([localbitcoins.ipset](networks/ipv4/localbitcoins.ipset))
+- IPv6 Networks: 0
+0 ([localbitcoins.ipset](networks/ipv6/localbitcoins.ipset))
+
+## Coinomi
+- IPv4 Networks: 0
+0 ([coinomi.ipset](networks/ipv4/coinomi.ipset))
+- IPv6 Networks: 0
+0 ([coinomi.ipset](networks/ipv6/coinomi.ipset))
 
 ## Summary
-- Total IPv4 Networks: 1301
-- Total IPv6 Networks: 524
+- Total IPv4 Networks: 1560
+- Total IPv6 Networks: 568
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)
