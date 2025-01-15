@@ -1,4 +1,4 @@
-name: Update Networks
+name: Update Netwname: Update Networks
 
 on:
   push:
@@ -74,6 +74,7 @@ jobs:
             # Run NetblockTool
             python3 NetblockTool.py -vl <(echo "$company") -o "$company"
             company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
             
             # Process IPv4 networks
             ipv4_count=0
@@ -117,6 +118,1956 @@ jobs:
           } >> README.md
 
       - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+orks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+          name: Update Netwname: Update Networks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+orks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Pushname: Update Netwname: Update Networks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+orks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+          name: Update Netwname: Update Networks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+orks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+  echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+  echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Pushname: Update Netwname: Update Networks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+orks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+          name: Update Netwname: Update Networks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+orks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Pushname: Update Netwname: Update Networks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+orks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+          name: Update Netwname: Update Networks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+orks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            company_file=$(echo "$company" | tr ' ' '_')
+            company_lower=$(echo "$company_lower" | tr ' ' '_')
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv4.${company_lower}.ipset"
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
+            } > "ipv6.${company_lower}.ipset"
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company_file}.csv"
+          done < company.list
+          
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+  echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+  echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.*.ipset ipv6.*.ipset
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
