@@ -1,0 +1,95 @@
+name: Update Networks
+
+on:
+  push:
+    branches: [ "master" ]
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip urllib3 requests
+          pip install netaddr requests beautifulsoup4 lxml
+          chmod +x -R ./*.py
+
+      - name: Process Networks
+        env:
+          PYTHONWARNINGS: "ignore:Unverified HTTPS request"
+        run: |
+          echo "# Network Lists" > README.md
+          echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
+          echo "" >> README.md
+          
+          while IFS= read -r company; do
+            echo "Processing $company..."
+            company_lower=${company,,}
+            
+            # Run NetblockTool
+            python3 NetblockTool.py -vl <(echo "$company") -o "$company"
+            
+            # Process IPv4 networks
+            ipv4_count=0
+            {
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company}.csv" | cut -d',' -f1 || true
+            } >> ipv4.company.list
+            
+            # Process IPv6 networks
+            ipv6_count=0
+            {
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company}.csv" | cut -d',' -f1 || true
+            } >> ipv6.company.list
+            
+            # Count networks
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company}.csv" | wc -l)
+            
+            # Add to report
+            {
+              echo "## $company"
+              echo "- IPv4 Networks: $ipv4_count"
+              echo "- IPv6 Networks: $ipv6_count"
+              echo ""
+            } >> README.md
+            
+            # Cleanup
+            rm -f "${company}.csv"
+          done < company.list
+          
+          # Add summary
+          {
+            echo "## Summary"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.company.list)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.company.list)"
+          } >> README.md
+
+      - name: Commit and Push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add README.md ipv4.company.list ipv6.company.list
+            git commit -m "Updated Networks on $(date -Iminutes)"
+            git push origin HEAD:${GITHUB_REF}
+          fi
+        
