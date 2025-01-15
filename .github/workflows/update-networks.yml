@@ -269,6 +269,7 @@ jobs:
             echo "- Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)"
             echo "- Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)"
             echo "- Loader Script: [load-networks.sh](networks/load-networks.sh)"
+            echo "#### Information collected by Netblock Tool"
           } >> README.md
 
       - name: Create Release Archive
