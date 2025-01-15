@@ -44,6 +44,29 @@ jobs:
           echo "Last update: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> README.md
           echo "" >> README.md
           
+          cat << EOF >> README.md
+          ## Usage with iptables
+
+          You can directly use these ipset lists with iptables. Here's how:
+
+          1. Create new ipset:
+          \`\`\`bash
+          ipset create company_networks hash:net
+          \`\`\`
+
+          2. Load the IPv4 networks (replace COMPANY with desired company name in lowercase):
+          \`\`\`bash
+          curl -s https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/master/ipv4.COMPANY.ipset | while read line; do ipset add company_networks \$line; done
+          \`\`\`
+
+          3. Use with iptables:
+          \`\`\`bash
+          iptables -A INPUT -m set --match-set company_networks src -j DROP
+          \`\`\`
+
+          ## Available Company Lists
+          EOF
+          
           while IFS= read -r company; do
             echo "Processing $company..."
             company_lower=${company,,}
@@ -51,17 +74,18 @@ jobs:
             # Run NetblockTool
             python3 NetblockTool.py -vl <(echo "$company") -o "$company"
             company_file=$(echo "$company" | tr ' ' '_')
+            
             # Process IPv4 networks
             ipv4_count=0
             {
               grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
-            } >> ipv4.company.list
+            } > "ipv4.${company_lower}.ipset"
             
             # Process IPv6 networks
             ipv6_count=0
             {
               grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
-            } >> ipv6.company.list
+            } > "ipv6.${company_lower}.ipset"
             
             # Count networks
             ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
@@ -70,8 +94,8 @@ jobs:
             # Add to report
             {
               echo "## $company"
-              echo "- IPv4 Networks: $ipv4_count"
-              echo "- IPv6 Networks: $ipv6_count"
+              echo "- IPv4 Networks: $ipv4_count ([ipv4.${company_lower}.ipset](ipv4.${company_lower}.ipset))"
+              echo "- IPv6 Networks: $ipv6_count ([ipv6.${company_lower}.ipset](ipv6.${company_lower}.ipset))"
               echo ""
             } >> README.md
             
@@ -79,11 +103,17 @@ jobs:
             rm -f "${company_file}.csv"
           done < company.list
           
+          # Create combined lists
+          cat ipv4.*.ipset > ipv4.colist.ipset
+          cat ipv6.*.ipset > ipv6.colist.ipset
+          
           # Add summary
           {
             echo "## Summary"
-            echo "- Total IPv4 Networks: $(wc -l < ipv4.company.list)"
-            echo "- Total IPv6 Networks: $(wc -l < ipv6.company.list)"
+            echo "- Total IPv4 Networks: $(wc -l < ipv4.colist.ipset)"
+            echo "- Total IPv6 Networks: $(wc -l < ipv6.colist.ipset)"
+            echo "- Combined IPv4 List: [ipv4.colist.ipset](ipv4.colist.ipset)"
+            echo "- Combined IPv6 List: [ipv6.colist.ipset](ipv6.colist.ipset)"
           } >> README.md
 
       - name: Commit and Push
@@ -93,8 +123,7 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git config --global user.name "github-actions[bot]"
-            git add README.md ipv4.company.list ipv6.company.list
+            git add README.md ipv4.*.ipset ipv6.*.ipset
             git commit -m "Updated Networks on $(date -Iminutes)"
             git push origin HEAD:${GITHUB_REF}
           fi
-        
