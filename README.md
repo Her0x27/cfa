@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-01-15 12:51:27 UTC
+Last update: 2025-01-15 13:08:37 UTC
 
 ## Quick Start
 
@@ -83,50 +83,8 @@ chmod +x load-networks.sh
 - IPv4 Networks: 79 ([twitter.ipset](networks/ipv4/twitter.ipset))
 - IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
 
-## X Corp
-- IPv4 Networks: 0
-0 ([x_corp.ipset](networks/ipv4/x_corp.ipset))
-- IPv6 Networks: 0
-0 ([x_corp.ipset](networks/ipv6/x_corp.ipset))
-
-## The Pirate Bay
-- IPv4 Networks: 0
-0 ([the_pirate_bay.ipset](networks/ipv4/the_pirate_bay.ipset))
-- IPv6 Networks: 0
-0 ([the_pirate_bay.ipset](networks/ipv6/the_pirate_bay.ipset))
-
-## 1337x
-- IPv4 Networks: 0
-0 ([1337x.ipset](networks/ipv4/1337x.ipset))
-- IPv6 Networks: 0
-0 ([1337x.ipset](networks/ipv6/1337x.ipset))
-
-## RuTracker
-- IPv4 Networks: 0
-0 ([rutracker.ipset](networks/ipv4/rutracker.ipset))
-- IPv6 Networks: 0
-0 ([rutracker.ipset](networks/ipv6/rutracker.ipset))
-
-## HDOnline
-- IPv4 Networks: 0
-0 ([hdonline.ipset](networks/ipv4/hdonline.ipset))
-- IPv6 Networks: 0
-0 ([hdonline.ipset](networks/ipv6/hdonline.ipset))
-
-## LocalBitcoins
-- IPv4 Networks: 0
-0 ([localbitcoins.ipset](networks/ipv4/localbitcoins.ipset))
-- IPv6 Networks: 0
-0 ([localbitcoins.ipset](networks/ipv6/localbitcoins.ipset))
-
-## Coinomi
-- IPv4 Networks: 0
-0 ([coinomi.ipset](networks/ipv4/coinomi.ipset))
-- IPv6 Networks: 0
-0 ([coinomi.ipset](networks/ipv6/coinomi.ipset))
-
 ## Summary
-- Total IPv4 Networks: 1560
+- Total IPv4 Networks: 1478
 - Total IPv6 Networks: 568
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
