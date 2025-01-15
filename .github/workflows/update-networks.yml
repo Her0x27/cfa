@@ -279,14 +279,17 @@ jobs:
 
       - name: Create Release
         id: create_release
+        env:
+          DATE_TAG: ${{ github.ref_name }}-$(date '+%Y%m%d')
         uses: softprops/action-gh-release@v1
         with:
           files: networks-archive.zip
           name: "Network Lists $(date '+%Y-%m-%d')"
-          tag_name: "v$(date '+%Y.%m.%d')"
+          tag_name: ${{ env.DATE_TAG }}
           body: "Updated network lists for $(date '+%Y-%m-%d')"
           draft: false
           prerelease: false
+
 
       - name: Commit and Push
         env:
@@ -299,4 +302,3 @@ jobs:
             git commit -m "Updated Networks on $(date -Iminutes)"
             git push origin HEAD:${GITHUB_REF}
           fi
-        
