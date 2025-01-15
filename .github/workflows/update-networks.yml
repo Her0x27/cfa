@@ -50,22 +50,22 @@ jobs:
             
             # Run NetblockTool
             python3 NetblockTool.py -vl <(echo "$company") -o "$company"
-            
+            company_file=$(echo "$company" | tr ' ' '_')
             # Process IPv4 networks
             ipv4_count=0
             {
-              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company}.csv" | cut -d',' -f1 || true
+              grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
             } >> ipv4.company.list
             
             # Process IPv6 networks
             ipv6_count=0
             {
-              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company}.csv" | cut -d',' -f1 || true
+              grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | cut -d',' -f1 || true
             } >> ipv6.company.list
             
             # Count networks
-            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company}.csv" | wc -l)
-            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company}.csv" | wc -l)
+            ipv4_count=$(grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+,' "${company_file}.csv" | wc -l)
+            ipv6_count=$(grep -E '^[0-9a-fA-F:]+:[0-9a-fA-F:]+/[0-9]+,' "${company_file}.csv" | wc -l)
             
             # Add to report
             {
@@ -76,7 +76,7 @@ jobs:
             } >> README.md
             
             # Cleanup
-            rm -f "${company}.csv"
+            rm -f "${company_file}.csv"
           done < company.list
           
           # Add summary
