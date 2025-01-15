@@ -29,6 +29,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip urllib3 requests
           pip install netaddr requests beautifulsoup4 lxml
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          SITE_PACKAGES=$(python -c "import site; print(site.getsitepackages()[0])")
+          mkdir -p "$SITE_PACKAGES/edgar"
+          cp -r *.py "$SITE_PACKAGES/"
+          echo "PYTHONPATH=$PYTHONPATH:$PWD" >> $GITHUB_ENV
           chmod +x -R ./*.py
 
       - name: Process Networks
