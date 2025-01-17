@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-01-16 00:52:41 UTC
+# Last updated: 2025-01-17 00:50:55 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.0/25
@@ -293,7 +293,6 @@ ipset add akamai 12.17.156.8/29
 ipset add akamai 12.174.4.56/29
 ipset add akamai 12.174.4.80/29
 ipset add akamai 12.191.124.0/29
-ipset add akamai 12.191.128.64/29
 ipset add akamai 12.191.132.24/29
 ipset add akamai 12.196.32.88/29
 ipset add akamai 12.197.186.56/29
@@ -323,7 +322,6 @@ ipset add akamai 12.49.240.0/29
 ipset add akamai 12.49.240.8/29
 ipset add akamai 12.6.224.8/29
 ipset add akamai 12.7.8.0/29
-ipset add akamai 12.9.100.32/29
 ipset add akamai 12.9.100.40/29
 ipset add akamai 12.97.117.224/29
 ipset add akamai 170.199.192.0/20
@@ -399,6 +397,8 @@ ipset add akamai 63.243.243.128/25
 ipset add akamai 63.243.244.0/24
 ipset add akamai 63.243.245.0/24
 ipset add akamai 63.243.246.0/24
+ipset add akamai 64.224.201.112/28
+ipset add akamai 64.224.201.128/28
 ipset add akamai 173.12.87.24/29
 ipset add akamai 209.170.97.0/24
 ipset add akamai 209.95.131.128/25
@@ -1157,7 +1157,6 @@ ipset add facebook 12.14.115.128/26
 ipset add facebook 12.14.115.80/29
 ipset add facebook 12.146.116.192/29
 ipset add facebook 12.151.178.168/29
-ipset add facebook 12.152.33.176/28
 ipset add facebook 12.156.66.32/29
 ipset add facebook 12.163.75.160/28
 ipset add facebook 12.167.198.192/26
@@ -1252,7 +1251,6 @@ ipset add facebook 157.240.233.0/24
 ipset add facebook 157.240.234.0/24
 ipset add facebook 157.240.235.0/24
 ipset add facebook 157.240.237.0/24
-ipset add facebook 157.240.238.0/24
 ipset add facebook 157.240.24.0/24
 ipset add facebook 157.240.241.0/24
 ipset add facebook 157.240.242.0/24
@@ -1302,6 +1300,7 @@ ipset add facebook 173.252.64.0/19
 ipset add facebook 173.252.88.0/21
 ipset add facebook 173.252.96.0/19
 ipset add facebook 179.60.195.0/24
+ipset add facebook 185.60.217.0/24
 ipset add github 174.143.3.100/30
 ipset add github 64.124.138.32/28
 ipset add github 140.82.112.0/20
@@ -1561,6 +1560,7 @@ ipset add netflix 69.53.252.0/24
 ipset add netflix 69.53.253.0/24
 ipset add netflix 207.45.72.0/24
 ipset add netflix 207.45.73.0/24
+ipset add netflix 207.45.74.0/24
 ipset add netflix 207.45.75.0/24
 ipset add netflix 45.57.40.0/24
 ipset add netflix 45.57.41.0/24
