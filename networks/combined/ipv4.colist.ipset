@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-01-18 00:48:57 UTC
+# Last updated: 2025-01-19 00:56:41 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.0/25
@@ -2020,6 +2020,5 @@ ipset add youtube 208.117.238.0/24
 ipset add youtube 208.117.240.0/24
 ipset add youtube 208.117.250.0/24
 ipset add youtube 208.117.251.0/24
-ipset add youtube 208.117.254.0/24
 ipset add youtube 64.15.112.0/24
 ipset add youtube 64.15.126.0/24

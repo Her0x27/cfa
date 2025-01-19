@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-01-18 00:41:46 UTC
+Last update: 2025-01-19 00:47:29 UTC
 
 ## Quick Start
 
@@ -59,7 +59,7 @@ chmod +x load-networks.sh
 0 ([valve_corporation.ipset](networks/ipv6/valve_corporation.ipset))
 
 ## YouTube
-- IPv4 Networks: 40 ([youtube.ipset](networks/ipv4/youtube.ipset))
+- IPv4 Networks: 39 ([youtube.ipset](networks/ipv4/youtube.ipset))
 - IPv6 Networks: 24 ([youtube.ipset](networks/ipv6/youtube.ipset))
 
 ## Epic Games
@@ -92,7 +92,7 @@ chmod +x load-networks.sh
 - IPv6 Networks: 256 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2022
+- Total IPv4 Networks: 2021
 - Total IPv6 Networks: 829
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
