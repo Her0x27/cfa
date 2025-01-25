@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-01-24 00:43:28 UTC
+Last update: 2025-01-25 00:42:18 UTC
 
 ## Quick Start
 
@@ -41,7 +41,7 @@ chmod +x load-networks.sh
 - IPv6 Networks: 2 ([anthropic.ipset](networks/ipv6/anthropic.ipset))
 
 ## OpenAI
-- IPv4 Networks: 7 ([openai.ipset](networks/ipv4/openai.ipset))
+- IPv4 Networks: 8 ([openai.ipset](networks/ipv4/openai.ipset))
 - IPv6 Networks: 1 ([openai.ipset](networks/ipv6/openai.ipset))
 
 ## Akamai
@@ -92,7 +92,7 @@ chmod +x load-networks.sh
 - IPv6 Networks: 256 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2022
+- Total IPv4 Networks: 2023
 - Total IPv6 Networks: 829
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)

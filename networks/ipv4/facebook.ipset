@@ -1,5 +1,5 @@
 # IPv4 networks for Facebook
-# Last updated: 2025-01-24 00:50:20 UTC
+# Last updated: 2025-01-25 00:49:40 UTC
 
 ipset add facebook 128.177.112.16/29
 ipset add facebook 198.24.63.160/29
@@ -196,9 +196,6 @@ ipset add facebook 199.201.64.0/22
 ipset add facebook 12.219.196.8/29
 ipset add facebook 128.177.77.152/30
 ipset add facebook 173.252.64.0/18
-ipset add facebook 12.14.38.0/26
-ipset add facebook 12.14.38.64/26
-ipset add facebook 12.159.100.64/26
 ipset add facebook 12.1.137.248/29
 ipset add facebook 12.10.18.32/29
 ipset add facebook 12.10.40.112/28
@@ -212,12 +209,15 @@ ipset add facebook 12.138.222.8/29
 ipset add facebook 12.138.93.24/29
 ipset add facebook 12.14.115.128/26
 ipset add facebook 12.14.115.80/29
+ipset add facebook 12.14.38.0/26
+ipset add facebook 12.14.38.64/26
 ipset add facebook 12.146.116.192/29
 ipset add facebook 12.151.178.168/29
 ipset add facebook 12.151.44.136/29
 ipset add facebook 12.151.44.160/28
 ipset add facebook 12.152.33.176/28
 ipset add facebook 12.156.66.32/29
+ipset add facebook 12.159.100.64/26
 ipset add facebook 12.163.75.160/28
 ipset add facebook 12.166.142.64/29
 ipset add facebook 12.167.198.192/26
@@ -341,14 +341,12 @@ ipset add facebook 209.95.138.244/30
 ipset add facebook 209.95.138.248/30
 ipset add facebook 209.95.138.252/30
 ipset add facebook 50.76.50.112/28
+ipset add facebook 12.219.196.8/29
+ipset add facebook 72.8.202.104/29
 ipset add facebook 12.14.38.0/26
 ipset add facebook 12.14.38.64/26
 ipset add facebook 12.159.100.64/26
-ipset add facebook 12.219.196.8/29
-ipset add facebook 72.8.202.104/29
 ipset add facebook 12.188.228.64/26
-ipset add facebook 12.48.164.128/26
-ipset add facebook 12.48.164.80/29
 ipset add facebook 12.129.142.0/26
 ipset add facebook 12.13.37.192/27
 ipset add facebook 12.234.120.208/29
@@ -357,6 +355,8 @@ ipset add facebook 12.234.121.192/26
 ipset add facebook 12.24.224.216/29
 ipset add facebook 12.24.224.224/29
 ipset add facebook 12.44.203.16/29
+ipset add facebook 12.48.164.128/26
+ipset add facebook 12.48.164.80/29
 ipset add facebook 12.48.166.64/26
 ipset add facebook 12.48.167.0/27
 ipset add facebook 207.242.154.0/26
