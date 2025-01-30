@@ -1,5 +1,5 @@
 # IPv6 networks for GOG
-# Last updated: 2025-01-29 00:46:41 UTC
+# Last updated: 2025-01-30 00:46:02 UTC
 
 ipset add gog 2001:1890:1f35:7b00::/56
 ipset add gog 2600:6001:1abd::/48

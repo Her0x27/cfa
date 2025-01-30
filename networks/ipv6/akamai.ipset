@@ -1,5 +1,5 @@
 # IPv6 networks for Akamai
-# Last updated: 2025-01-29 00:46:09 UTC
+# Last updated: 2025-01-30 00:45:32 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -374,7 +374,6 @@ ipset add akamai 2600:1407:3800::/48
 ipset add akamai 2600:1407:4800::/48
 ipset add akamai 2600:1407:5::/48
 ipset add akamai 2600:1407:6800::/48
-ipset add akamai 2600:1407:800::/48
 ipset add akamai 2600:1407:8800::/48
 ipset add akamai 2600:1407:9000::/48
 ipset add akamai 2600:1407:9800::/48
