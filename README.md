@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-02-03 00:44:51 UTC
+Last update: 2025-02-04 00:43:43 UTC
 
 ## Quick Start
 
@@ -45,8 +45,8 @@ chmod +x load-networks.sh
 - IPv6 Networks: 1 ([openai.ipset](networks/ipv6/openai.ipset))
 
 ## Akamai
-- IPv4 Networks: 760 ([akamai.ipset](networks/ipv4/akamai.ipset))
-- IPv6 Networks: 412 ([akamai.ipset](networks/ipv6/akamai.ipset))
+- IPv4 Networks: 758 ([akamai.ipset](networks/ipv4/akamai.ipset))
+- IPv6 Networks: 413 ([akamai.ipset](networks/ipv6/akamai.ipset))
 
 ## Discord
 - IPv4 Networks: 2 ([discord.ipset](networks/ipv4/discord.ipset))
@@ -59,7 +59,7 @@ chmod +x load-networks.sh
 0 ([valve_corporation.ipset](networks/ipv6/valve_corporation.ipset))
 
 ## YouTube
-- IPv4 Networks: 38 ([youtube.ipset](networks/ipv4/youtube.ipset))
+- IPv4 Networks: 39 ([youtube.ipset](networks/ipv4/youtube.ipset))
 - IPv6 Networks: 24 ([youtube.ipset](networks/ipv6/youtube.ipset))
 
 ## Epic Games
@@ -92,8 +92,8 @@ chmod +x load-networks.sh
 - IPv6 Networks: 257 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2015
-- Total IPv6 Networks: 827
+- Total IPv4 Networks: 2014
+- Total IPv6 Networks: 828
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)
