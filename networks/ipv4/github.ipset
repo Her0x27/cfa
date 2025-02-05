@@ -1,5 +1,5 @@
 # IPv4 networks for GitHub
-# Last updated: 2025-02-04 00:43:47 UTC
+# Last updated: 2025-02-05 00:44:05 UTC
 
 ipset add github 174.143.3.100/30
 ipset add github 64.124.138.32/28
