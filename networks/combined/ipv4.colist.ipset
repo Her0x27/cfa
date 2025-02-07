@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-02-06 00:51:05 UTC
+# Last updated: 2025-02-07 00:50:40 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.0/25
@@ -196,6 +196,7 @@ ipset add akamai 207.10.23.80/28
 ipset add akamai 12.25.131.120/29
 ipset add akamai 12.25.131.224/29
 ipset add akamai 12.25.132.192/29
+ipset add akamai 12.25.133.104/29
 ipset add akamai 12.25.133.208/29
 ipset add akamai 12.25.133.96/29
 ipset add akamai 12.48.162.144/29
@@ -211,6 +212,7 @@ ipset add akamai 173.162.202.176/29
 ipset add akamai 173.198.73.32/29
 ipset add akamai 204.191.12.0/25
 ipset add akamai 204.191.74.0/24
+ipset add akamai 204.199.96.224/30
 ipset add akamai 205.250.85.0/25
 ipset add akamai 207.164.137.0/25
 ipset add akamai 207.167.205.192/27
@@ -234,6 +236,7 @@ ipset add akamai 209.89.157.128/25
 ipset add akamai 209.89.172.64/26
 ipset add akamai 216.104.66.208/28
 ipset add akamai 216.148.233.0/25
+ipset add akamai 216.200.156.148/30
 ipset add akamai 216.200.159.202/31
 ipset add akamai 23.31.93.8/29
 ipset add akamai 3.120.181.168/29
@@ -647,7 +650,6 @@ ipset add akamai 172.224.163.0/24
 ipset add akamai 172.224.164.0/24
 ipset add akamai 172.224.165.0/24
 ipset add akamai 172.224.166.0/24
-ipset add akamai 172.224.167.0/24
 ipset add akamai 172.224.168.0/24
 ipset add akamai 172.224.169.0/24
 ipset add akamai 172.224.17.0/24
@@ -684,6 +686,7 @@ ipset add akamai 172.224.226.0/24
 ipset add akamai 172.224.227.0/24
 ipset add akamai 172.224.228.0/24
 ipset add akamai 172.224.229.0/24
+ipset add akamai 172.224.230.0/24
 ipset add akamai 173.223.54.0/24
 ipset add akamai 184.24.106.0/24
 ipset add akamai 184.24.74.0/23
