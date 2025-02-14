@@ -1,5 +1,5 @@
 # IPv6 networks for Origin
-# Last updated: 2025-02-13 00:49:22 UTC
+# Last updated: 2025-02-14 00:48:27 UTC
 
 ipset add origin 2001:1890:1bc5:9900::/56
 ipset add origin 2001:1890:17c8:e100::/56
@@ -33,13 +33,14 @@ ipset add origin 2001:1890:1ea1:4c00::/56
 ipset add origin 2600:5c00:3a8d::/48
 ipset add origin 2600:6c2e:c1e::/48
 ipset add origin 2605:a401:85a5::/48
+ipset add origin 2605:ed00:31f7::/48
 ipset add origin 2605:ed00:69d2::/48
 ipset add origin 2600:5800:fc18::/48
 ipset add origin 2605:a404:1a87::/48
-ipset add origin 2605:ed00:31f7::/48
 ipset add origin 2600:6001:f54::/48
 ipset add origin 2605:ed00:e5c6::/48
 ipset add origin 2600:5c00:3a8d::/48
 ipset add origin 2600:6c2e:c1e::/48
 ipset add origin 2605:a401:85a5::/48
+ipset add origin 2605:ed00:31f7::/48
 ipset add origin 2605:ed00:69d2::/48
