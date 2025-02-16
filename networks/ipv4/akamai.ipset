@@ -1,5 +1,5 @@
 # IPv4 networks for Akamai
-# Last updated: 2025-02-15 00:46:07 UTC
+# Last updated: 2025-02-16 00:52:13 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.0/25
