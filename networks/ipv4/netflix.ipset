@@ -1,5 +1,5 @@
 # IPv4 networks for Netflix
-# Last updated: 2025-02-17 00:52:27 UTC
+# Last updated: 2025-02-18 00:49:42 UTC
 
 ipset add netflix 12.219.236.0/29
 ipset add netflix 12.219.236.16/29
