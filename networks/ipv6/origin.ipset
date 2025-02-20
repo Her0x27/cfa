@@ -1,8 +1,7 @@
 # IPv6 networks for Origin
-# Last updated: 2025-02-19 00:49:21 UTC
+# Last updated: 2025-02-20 00:49:27 UTC
 
-ipset add origin 2001:1890:1bc5:9900::/56
-ipset add origin 2001:1890:17c8:e100::/56
+ipset add origin 2001:1890:14f1:2c00::/56
 ipset add origin 2001:1890:18bb:9300::/56
 ipset add origin 2001:1890:18bb:9400::/56
 ipset add origin 2001:1890:18bb:d300::/56
@@ -22,25 +21,23 @@ ipset add origin 2001:1890:19e8:6200::/56
 ipset add origin 2001:1890:19e8:6300::/56
 ipset add origin 2001:1890:19ea:5800::/56
 ipset add origin 2001:1890:1be5:800::/56
+ipset add origin 2001:1890:1f54:3a00::/56
 ipset add origin 2001:1890:1f67:4800::/56
-ipset add origin 2001:1890:200b:e600::/56
-ipset add origin 2001:1890:2016:3400::/56
+ipset add origin 2001:1890:1f80:1400::/56
+ipset add origin 2001:1890:1f8b:1500::/56
 ipset add origin 2600:6001:f54::/48
 ipset add origin 2605:ed00:e5c6::/48
 ipset add origin 2001:1890:193b:1200::/56
-ipset add origin 2001:1890:1c14:c200::/56
-ipset add origin 2001:1890:1ea1:4c00::/56
 ipset add origin 2600:5c00:3a8d::/48
-ipset add origin 2600:6c2e:c1e::/48
-ipset add origin 2605:a401:85a5::/48
+ipset add origin 2605:a404:1a87::/48
 ipset add origin 2605:ed00:31f7::/48
 ipset add origin 2605:ed00:69d2::/48
 ipset add origin 2600:5800:fc18::/48
-ipset add origin 2605:a404:1a87::/48
+ipset add origin 2600:6c2e:c1e::/48
+ipset add origin 2605:a401:85a5::/48
 ipset add origin 2600:6001:f54::/48
 ipset add origin 2605:ed00:e5c6::/48
 ipset add origin 2600:5c00:3a8d::/48
-ipset add origin 2600:6c2e:c1e::/48
-ipset add origin 2605:a401:85a5::/48
+ipset add origin 2605:a404:1a87::/48
 ipset add origin 2605:ed00:31f7::/48
 ipset add origin 2605:ed00:69d2::/48
