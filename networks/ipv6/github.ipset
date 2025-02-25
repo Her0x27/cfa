@@ -1,5 +1,5 @@
 # IPv6 networks for GitHub
-# Last updated: 2025-02-24 00:47:10 UTC
+# Last updated: 2025-02-25 00:45:46 UTC
 
 ipset add github 2620:112:3000::/44
 ipset add github 2a0a:a440::/29
