@@ -1,5 +1,5 @@
 # IPv6 networks for Twitter
-# Last updated: 2025-02-27 00:51:41 UTC
+# Last updated: 2025-02-28 00:52:27 UTC
 
 ipset add twitter 2400:6680:f000::/36
 ipset add twitter 2a04:9d40:f000::/36
