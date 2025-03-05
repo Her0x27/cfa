@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-03-04 00:46:53 UTC
+Last update: 2025-03-05 00:46:41 UTC
 
 ## Quick Start
 
@@ -72,8 +72,8 @@ chmod +x load-networks.sh
 - IPv6 Networks: 4 ([gog.ipset](networks/ipv6/gog.ipset))
 
 ## Origin
-- IPv4 Networks: 321 ([origin.ipset](networks/ipv4/origin.ipset))
-- IPv6 Networks: 40 ([origin.ipset](networks/ipv6/origin.ipset))
+- IPv4 Networks: 322 ([origin.ipset](networks/ipv4/origin.ipset))
+- IPv6 Networks: 41 ([origin.ipset](networks/ipv6/origin.ipset))
 
 ## Blizzard Entertainment
 - IPv4 Networks: 9 ([blizzard_entertainment.ipset](networks/ipv4/blizzard_entertainment.ipset))
@@ -92,8 +92,8 @@ chmod +x load-networks.sh
 - IPv6 Networks: 259 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2018
-- Total IPv6 Networks: 828
+- Total IPv4 Networks: 2019
+- Total IPv6 Networks: 829
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)

@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-03-04 00:54:05 UTC
+# Last updated: 2025-03-05 00:56:22 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.0/25
@@ -1122,19 +1122,13 @@ ipset add facebook 209.95.138.252/30
 ipset add facebook 50.76.50.112/28
 ipset add facebook 12.219.196.8/29
 ipset add facebook 72.8.202.104/29
+ipset add facebook 12.188.228.64/26
 ipset add facebook 12.14.38.0/26
 ipset add facebook 12.14.38.64/26
 ipset add facebook 12.159.100.64/26
-ipset add facebook 12.188.228.64/26
-ipset add facebook 12.234.120.208/29
-ipset add facebook 12.234.121.0/26
-ipset add facebook 12.234.121.192/26
-ipset add facebook 12.24.224.216/29
-ipset add facebook 12.24.224.224/29
 ipset add facebook 12.44.203.16/29
 ipset add facebook 12.48.164.128/26
 ipset add facebook 12.48.164.80/29
-ipset add facebook 207.242.154.0/26
 ipset add facebook 12.43.180.8/29
 ipset add facebook 12.1.137.248/29
 ipset add facebook 12.10.18.32/29
@@ -1176,12 +1170,18 @@ ipset add facebook 12.215.252.64/26
 ipset add facebook 12.216.209.160/29
 ipset add facebook 12.219.101.16/29
 ipset add facebook 12.23.1.232/29
+ipset add facebook 12.234.120.208/29
+ipset add facebook 12.234.121.0/26
+ipset add facebook 12.234.121.192/26
+ipset add facebook 12.24.224.216/29
+ipset add facebook 12.24.224.224/29
 ipset add facebook 12.29.186.96/29
 ipset add facebook 12.38.208.224/29
 ipset add facebook 12.43.180.24/29
 ipset add facebook 12.48.166.64/26
 ipset add facebook 12.48.167.0/27
 ipset add facebook 12.49.159.208/29
+ipset add facebook 207.242.154.0/26
 ipset add facebook 207.242.16.176/28
 ipset add facebook 209.214.82.120/29
 ipset add facebook 209.215.194.80/29
@@ -1612,7 +1612,6 @@ ipset add origin 12.21.80.40/29
 ipset add origin 12.215.74.32/29
 ipset add origin 12.220.36.32/29
 ipset add origin 12.220.37.248/29
-ipset add origin 12.221.201.152/29
 ipset add origin 12.227.56.24/29
 ipset add origin 12.230.17.56/29
 ipset add origin 12.238.22.216/29
@@ -1653,6 +1652,7 @@ ipset add origin 24.137.60.96/30
 ipset add origin 24.149.203.96/28
 ipset add origin 24.39.197.96/29
 ipset add origin 47.23.111.192/29
+ipset add origin 47.44.114.160/29
 ipset add origin 50.84.137.64/29
 ipset add origin 63.114.235.80/28
 ipset add origin 63.138.142.148/30
@@ -1801,6 +1801,7 @@ ipset add origin 99.49.155.144/29
 ipset add origin 99.57.212.216/29
 ipset add origin 99.57.212.224/29
 ipset add origin 99.60.217.216/29
+ipset add origin 12.221.201.152/29
 ipset add origin 12.230.139.184/29
 ipset add origin 12.36.248.120/29
 ipset add origin 205.197.211.200/31
@@ -1848,7 +1849,6 @@ ipset add origin 12.21.80.40/29
 ipset add origin 12.215.74.32/29
 ipset add origin 12.220.36.32/29
 ipset add origin 12.220.37.248/29
-ipset add origin 12.221.201.152/29
 ipset add origin 12.227.56.24/29
 ipset add origin 12.230.17.56/29
 ipset add origin 12.238.22.216/29
@@ -1872,6 +1872,7 @@ ipset add origin 209.215.43.0/29
 ipset add origin 209.65.243.48/29
 ipset add origin 24.137.60.96/30
 ipset add origin 24.39.197.96/29
+ipset add origin 47.44.114.160/29
 ipset add origin 72.143.13.96/30
 ipset add origin 72.143.29.8/30
 ipset add origin 104.254.163.40/30

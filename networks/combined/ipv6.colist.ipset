@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-03-04 00:54:05 UTC
+# Last updated: 2025-03-05 00:56:22 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -724,7 +724,6 @@ ipset add netflix 2a00:86c0:2086::/48
 ipset add netflix 2a00:86c0:2090::/48
 ipset add netflix 2a00:86c0:2091::/48
 ipset add openai 2001:1890:1a33:1400::/56
-ipset add origin 2001:1890:14f1:2c00::/56
 ipset add origin 2001:1890:18bb:9300::/56
 ipset add origin 2001:1890:18bb:9400::/56
 ipset add origin 2001:1890:18bb:d300::/56
@@ -744,6 +743,7 @@ ipset add origin 2001:1890:19e8:6200::/56
 ipset add origin 2001:1890:19e8:6300::/56
 ipset add origin 2001:1890:19ea:5800::/56
 ipset add origin 2001:1890:1be5:800::/56
+ipset add origin 2001:1890:1ef2:2700::/56
 ipset add origin 2001:1890:1f54:3a00::/56
 ipset add origin 2001:1890:1f67:4800::/56
 ipset add origin 2001:1890:1f80:1400::/56
@@ -756,6 +756,7 @@ ipset add origin 2605:a404:1a87::/48
 ipset add origin 2605:ed00:31f7::/48
 ipset add origin 2605:ed00:69d2::/48
 ipset add origin 2600:5800:fc18::/48
+ipset add origin 2600:6c35:4fa::/48
 ipset add origin 2600:6c2e:c1e::/48
 ipset add origin 2605:a401:85a5::/48
 ipset add origin 2600:6001:f54::/48
