@@ -1,16 +1,14 @@
 # IPv4 networks for GOG
-# Last updated: 2025-03-06 00:50:38 UTC
+# Last updated: 2025-03-07 00:50:43 UTC
 
 ipset add gog 174.142.131.56/29
 ipset add gog 198.72.102.64/27
 ipset add gog 67.205.82.192/29
 ipset add gog 8.48.64.0/21
 ipset add gog 8.8.232.0/21
-ipset add gog 107.209.30.184/29
 ipset add gog 108.209.109.88/29
 ipset add gog 12.180.88.40/29
 ipset add gog 12.197.251.32/29
-ipset add gog 12.222.21.224/29
 ipset add gog 150.221.43.232/29
 ipset add gog 173.197.83.16/29
 ipset add gog 199.102.231.158/31
@@ -19,7 +17,6 @@ ipset add gog 23.119.69.192/29
 ipset add gog 23.119.69.232/29
 ipset add gog 40.128.202.188/30
 ipset add gog 40.129.179.0/28
-ipset add gog 50.197.77.40/29
 ipset add gog 50.78.92.144/29
 ipset add gog 63.193.69.0/24
 ipset add gog 66.216.182.72/29
@@ -29,7 +26,6 @@ ipset add gog 69.164.140.56/29
 ipset add gog 71.251.146.216/29
 ipset add gog 75.59.135.128/29
 ipset add gog 76.12.146.32/28
-ipset add gog 76.12.146.48/29
 ipset add gog 76.230.33.72/29
 ipset add gog 96.57.66.24/29
 ipset add gog 99.129.113.144/29
@@ -37,6 +33,7 @@ ipset add gog 99.129.124.184/29
 ipset add gog 99.149.64.136/29
 ipset add gog 12.145.178.0/23
 ipset add gog 12.163.135.216/29
+ipset add gog 12.222.21.224/29
 ipset add gog 12.230.20.200/29
 ipset add gog 162.17.132.136/29
 ipset add gog 173.1.0.0/17
@@ -53,19 +50,18 @@ ipset add gog 216.121.64.0/18
 ipset add gog 34.3.3.0/24
 ipset add gog 34.4.4.0/24
 ipset add gog 50.195.8.152/29
+ipset add gog 50.197.77.40/29
 ipset add gog 50.78.76.128/29
 ipset add gog 74.3.192.0/18
 ipset add gog 74.92.129.192/29
+ipset add gog 76.12.146.48/29
 ipset add gog 8.8.4.0/24
 ipset add gog 8.8.8.0/24
 ipset add gog 67.159.199.0/24
 ipset add gog 12.180.88.40/29
 ipset add gog 12.197.251.32/29
-ipset add gog 12.222.21.224/29
 ipset add gog 150.221.43.232/29
-ipset add gog 50.197.77.40/29
 ipset add gog 50.78.92.144/29
 ipset add gog 69.164.140.56/29
 ipset add gog 76.12.146.32/28
-ipset add gog 76.12.146.48/29
 ipset add gog 8.48.68.0/24
