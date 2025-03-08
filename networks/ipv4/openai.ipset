@@ -1,12 +1,13 @@
 # IPv4 networks for OpenAI
-# Last updated: 2025-03-07 00:47:12 UTC
+# Last updated: 2025-03-08 00:37:10 UTC
 
 ipset add openai 12.129.184.16/29
+ipset add openai 12.129.184.64/26
 ipset add openai 148.76.185.192/27
 ipset add openai 209.249.246.178/31
 ipset add openai 199.243.187.128/29
 ipset add openai 69.157.210.32/28
 ipset add openai 72.15.52.112/29
-ipset add openai 12.129.184.64/26
 ipset add openai 12.129.184.16/29
+ipset add openai 12.129.184.64/26
 ipset add openai 72.15.52.112/29

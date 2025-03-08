@@ -1,5 +1,5 @@
 # IPv6 networks for Netflix
-# Last updated: 2025-03-07 00:53:27 UTC
+# Last updated: 2025-03-08 00:44:05 UTC
 
 ipset add netflix 2600:5c00:421b::/48
 ipset add netflix 2a00:86c0:2008::/47
@@ -24,6 +24,7 @@ ipset add netflix 2001:1890:1d28:2700::/56
 ipset add netflix 2001:1890:1efd:1500::/56
 ipset add netflix 2600:5c00:34f7::/48
 ipset add netflix 2607:fb10::/32
+ipset add netflix 2620:0:ef0::/48
 ipset add netflix 2600:5c00:421b::/48
 ipset add netflix 2600:5c00:34f7::/48
 ipset add netflix 2607:fb10:5095:fffe::/64
