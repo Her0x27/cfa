@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-03-13 00:54:20 UTC
+# Last updated: 2025-03-14 00:53:38 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.0/25
@@ -734,7 +734,6 @@ ipset add akamai 23.193.173.0/24
 ipset add akamai 23.193.45.0/24
 ipset add akamai 23.193.57.0/24
 ipset add akamai 23.193.58.0/23
-ipset add akamai 23.194.114.0/24
 ipset add akamai 23.194.126.0/24
 ipset add akamai 23.194.189.0/24
 ipset add akamai 23.194.200.0/24
@@ -748,6 +747,7 @@ ipset add akamai 23.196.228.0/24
 ipset add akamai 23.197.203.0/24
 ipset add akamai 23.197.204.0/23
 ipset add akamai 23.198.15.0/24
+ipset add akamai 23.199.35.0/24
 ipset add akamai 23.200.22.0/24
 ipset add akamai 23.32.47.0/24
 ipset add akamai 23.56.209.0/24
@@ -2004,7 +2004,6 @@ ipset add youtube 50.202.95.0/24
 ipset add youtube 50.218.248.0/24
 ipset add youtube 50.218.250.0/24
 ipset add youtube 50.218.251.0/24
-ipset add youtube 50.218.252.0/24
 ipset add youtube 104.237.160.0/24
 ipset add youtube 104.237.164.0/24
 ipset add youtube 104.237.167.0/24
