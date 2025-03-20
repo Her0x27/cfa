@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-03-19 00:56:00 UTC
+# Last updated: 2025-03-20 00:54:07 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -221,6 +221,7 @@ ipset add akamai 2001:4878:2055::/48
 ipset add akamai 2001:4878:2062::/48
 ipset add akamai 2001:4878:2063::/48
 ipset add akamai 2001:4878:2068::/48
+ipset add akamai 2001:4878:2072::/48
 ipset add akamai 2001:4878:2151::/48
 ipset add akamai 2001:4878:215::/48
 ipset add akamai 2001:4878:2164::/48
@@ -279,6 +280,7 @@ ipset add akamai 2001:4878:48::/48
 ipset add akamai 2001:4878:62::/48
 ipset add akamai 2001:4878:63::/48
 ipset add akamai 2001:4878:68::/48
+ipset add akamai 2001:4878:72::/48
 ipset add akamai 2001:4878:7::/48
 ipset add akamai 2001:4878:8007::/48
 ipset add akamai 2001:4878:8027::/48
@@ -288,6 +290,7 @@ ipset add akamai 2001:4878:8048::/48
 ipset add akamai 2001:4878:8062::/48
 ipset add akamai 2001:4878:8063::/48
 ipset add akamai 2001:4878:8068::/48
+ipset add akamai 2001:4878:8072::/48
 ipset add akamai 2001:4878:8151::/48
 ipset add akamai 2001:4878:8164::/48
 ipset add akamai 2001:4878:8173::/48
@@ -310,11 +313,8 @@ ipset add akamai 2001:4878:a031::/48
 ipset add akamai 2001:4878:a037::/48
 ipset add akamai 2001:4878:a048::/48
 ipset add akamai 2001:4878:a062::/48
+ipset add akamai 2001:4878:a072::/48
 ipset add akamai 2001:4878:a151::/48
-ipset add akamai 2001:4878:a173::/48
-ipset add akamai 2001:4878:a204::/48
-ipset add akamai 2001:4878:a215::/48
-ipset add akamai 2001:4878:a216::/48
 ipset add akamai 2001:4878:c1e0::/44
 ipset add akamai 2600:1400:2000::/48
 ipset add akamai 2600:1400:5::/48
@@ -722,7 +722,9 @@ ipset add netflix 2a00:86c0:2041::/48
 ipset add netflix 2a00:86c0:2042::/48
 ipset add netflix 2a00:86c0:2043::/48
 ipset add netflix 2a00:86c0:2052::/48
+ipset add netflix 2a00:86c0:2053::/48
 ipset add netflix 2a00:86c0:2086::/48
+ipset add netflix 2a00:86c0:2087::/48
 ipset add netflix 2a00:86c0:2090::/48
 ipset add netflix 2a00:86c0:2091::/48
 ipset add openai 2001:1890:1a33:1400::/56
@@ -760,6 +762,7 @@ ipset add origin 2605:ed00:31f7::/48
 ipset add origin 2605:ed00:69d2::/48
 ipset add origin 2600:5800:fc18::/48
 ipset add origin 2600:6c35:4fa::/48
+ipset add origin 2600:6c36:814::/48
 ipset add origin 2600:6c2e:c1e::/48
 ipset add origin 2605:a401:85a5::/48
 ipset add origin 2600:6001:f54::/48
