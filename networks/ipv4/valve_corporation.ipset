@@ -1,5 +1,5 @@
 # IPv4 networks for Valve Corporation
-# Last updated: 2025-03-21 00:50:54 UTC
+# Last updated: 2025-03-22 00:49:37 UTC
 
 ipset add valve_corporation 199.229.227.120/29
 ipset add valve_corporation 199.229.227.156/30
