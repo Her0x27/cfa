@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-04-05 00:47:37 UTC
+Last update: 2025-04-06 00:52:59 UTC
 
 ## Quick Start
 
@@ -68,7 +68,7 @@ chmod +x load-networks.sh
 0 ([epic_games.ipset](networks/ipv6/epic_games.ipset))
 
 ## GOG
-- IPv4 Networks: 68 ([gog.ipset](networks/ipv4/gog.ipset))
+- IPv4 Networks: 67 ([gog.ipset](networks/ipv4/gog.ipset))
 - IPv6 Networks: 4 ([gog.ipset](networks/ipv6/gog.ipset))
 
 ## Origin
@@ -89,11 +89,11 @@ chmod +x load-networks.sh
 
 ## Facebook
 - IPv4 Networks: 513 ([facebook.ipset](networks/ipv4/facebook.ipset))
-- IPv6 Networks: 262 ([facebook.ipset](networks/ipv6/facebook.ipset))
+- IPv6 Networks: 261 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2026
-- Total IPv6 Networks: 837
+- Total IPv4 Networks: 2025
+- Total IPv6 Networks: 836
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)
