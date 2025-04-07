@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-04-06 01:00:08 UTC
+# Last updated: 2025-04-07 00:58:51 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.0/25
@@ -1944,7 +1944,6 @@ ipset add twitter 104.244.45.0/24
 ipset add twitter 104.244.46.0/24
 ipset add twitter 104.244.47.0/24
 ipset add twitter 185.45.4.0/24
-ipset add twitter 192.133.78.0/23
 ipset add twitter 192.48.236.0/24
 ipset add twitter 192.48.237.0/24
 ipset add twitter 199.16.156.0/23
