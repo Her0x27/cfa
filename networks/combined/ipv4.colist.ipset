@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-04-09 00:56:38 UTC
+# Last updated: 2025-04-10 00:57:00 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.0/25
@@ -97,13 +97,6 @@ ipset add akamai 198.144.96.0/24
 ipset add akamai 198.144.98.0/24
 ipset add akamai 198.144.99.0/24
 ipset add akamai 204.138.44.196/30
-ipset add akamai 204.93.32.0/24
-ipset add akamai 204.93.33.0/25
-ipset add akamai 204.93.34.0/24
-ipset add akamai 204.93.35.0/25
-ipset add akamai 204.93.37.0/24
-ipset add akamai 204.93.40.0/24
-ipset add akamai 204.93.44.0/24
 ipset add akamai 204.93.48.0/24
 ipset add akamai 205.168.46.0/24
 ipset add akamai 208.68.160.64/28
@@ -275,7 +268,6 @@ ipset add akamai 8.242.187.176/30
 ipset add akamai 99.63.144.128/29
 ipset add akamai 12.13.172.16/29
 ipset add akamai 12.148.92.8/29
-ipset add akamai 12.15.76.0/29
 ipset add akamai 12.151.178.176/29
 ipset add akamai 12.153.240.72/29
 ipset add akamai 12.157.196.16/29
@@ -400,6 +392,7 @@ ipset add akamai 64.86.135.0/24
 ipset add akamai 64.86.146.0/23
 ipset add akamai 64.86.200.0/25
 ipset add akamai 64.86.201.0/24
+ipset add akamai 64.86.202.0/25
 ipset add akamai 64.224.201.112/28
 ipset add akamai 64.224.201.128/28
 ipset add akamai 173.12.87.24/29
@@ -1549,6 +1542,7 @@ ipset add netflix 192.173.83.0/24
 ipset add netflix 192.173.89.0/24
 ipset add netflix 192.173.95.32/27
 ipset add netflix 192.173.95.64/27
+ipset add netflix 69.53.249.0/24
 ipset add netflix 69.53.251.0/24
 ipset add netflix 69.53.252.0/24
 ipset add netflix 69.53.253.0/24
@@ -1646,6 +1640,7 @@ ipset add origin 209.214.215.192/29
 ipset add origin 209.214.71.56/29
 ipset add origin 209.215.14.248/29
 ipset add origin 209.215.43.0/29
+ipset add origin 209.65.243.48/29
 ipset add origin 216.249.1.0/28
 ipset add origin 216.61.35.40/29
 ipset add origin 216.61.35.56/29
@@ -1806,7 +1801,6 @@ ipset add origin 12.227.56.24/29
 ipset add origin 12.230.139.184/29
 ipset add origin 12.36.248.120/29
 ipset add origin 205.197.211.200/31
-ipset add origin 209.65.243.48/29
 ipset add origin 69.144.98.104/29
 ipset add origin 96.10.207.168/29
 ipset add origin 12.15.242.184/29
@@ -1871,6 +1865,7 @@ ipset add origin 209.214.215.192/29
 ipset add origin 209.214.71.56/29
 ipset add origin 209.215.14.248/29
 ipset add origin 209.215.43.0/29
+ipset add origin 209.65.243.48/29
 ipset add origin 24.137.60.96/30
 ipset add origin 24.39.197.96/29
 ipset add origin 47.44.114.160/29
@@ -1957,6 +1952,9 @@ ipset add twitter 209.237.196.0/24
 ipset add twitter 209.237.198.0/24
 ipset add twitter 209.237.199.0/24
 ipset add twitter 209.237.200.0/24
+ipset add twitter 209.237.201.0/24
+ipset add twitter 209.237.202.0/24
+ipset add twitter 209.237.203.0/24
 ipset add twitter 209.237.204.0/24
 ipset add twitter 64.63.30.0/24
 ipset add twitter 64.63.31.0/24
