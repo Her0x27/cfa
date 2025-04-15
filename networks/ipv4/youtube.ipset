@@ -1,5 +1,5 @@
 # IPv4 networks for YouTube
-# Last updated: 2025-04-14 00:54:58 UTC
+# Last updated: 2025-04-15 00:53:51 UTC
 
 ipset add youtube 76.208.211.160/29
 ipset add youtube 104.237.160.0/19
