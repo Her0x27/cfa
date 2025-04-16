@@ -1,8 +1,7 @@
 # Combined IPv4 networks
-# Last updated: 2025-04-15 00:58:26 UTC
+# Last updated: 2025-04-16 00:58:30 UTC
 
 ipset add akamai 67.218.92.32/27
-ipset add akamai 72.249.197.0/25
 ipset add akamai 72.249.197.128/25
 ipset add akamai 128.177.164.0/25
 ipset add akamai 128.177.96.0/23
@@ -26,7 +25,6 @@ ipset add akamai 192.187.100.200/29
 ipset add akamai 192.187.102.176/29
 ipset add akamai 208.185.115.0/24
 ipset add akamai 208.185.148.64/26
-ipset add akamai 208.185.68.0/24
 ipset add akamai 209.128.111.232/29
 ipset add akamai 209.128.112.48/28
 ipset add akamai 209.128.67.144/29
@@ -51,10 +49,6 @@ ipset add akamai 3.18.132.144/29
 ipset add akamai 3.91.171.8/29
 ipset add akamai 34.223.47.48/29
 ipset add akamai 69.174.50.16/29
-ipset add akamai 72.249.193.0/25
-ipset add akamai 72.249.194.0/24
-ipset add akamai 72.249.198.0/26
-ipset add akamai 72.249.198.128/26
 ipset add akamai 209.215.22.0/29
 ipset add akamai 209.215.22.8/29
 ipset add akamai 173.12.87.24/29
@@ -129,11 +123,7 @@ ipset add akamai 69.31.33.0/24
 ipset add akamai 69.31.38.0/24
 ipset add akamai 69.31.74.0/23
 ipset add akamai 69.8.201.64/26
-ipset add akamai 70.39.137.0/24
-ipset add akamai 70.39.139.0/25
-ipset add akamai 70.39.163.0/24
 ipset add akamai 72.249.192.0/25
-ipset add akamai 72.249.195.128/25
 ipset add akamai 103.238.150.0/23
 ipset add akamai 103.95.84.0/22
 ipset add akamai 125.56.191.0/24
@@ -1940,10 +1930,6 @@ ipset add twitter 209.237.195.0/24
 ipset add twitter 209.237.196.0/24
 ipset add twitter 209.237.198.0/24
 ipset add twitter 209.237.200.0/24
-ipset add twitter 209.237.201.0/24
-ipset add twitter 209.237.202.0/24
-ipset add twitter 209.237.203.0/24
-ipset add twitter 209.237.204.0/24
 ipset add twitter 64.63.30.0/24
 ipset add twitter 64.63.31.0/24
 ipset add twitter 64.63.46.0/24
