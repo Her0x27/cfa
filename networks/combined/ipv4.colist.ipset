@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-04-17 00:57:14 UTC
+# Last updated: 2025-04-18 00:57:00 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -168,14 +168,18 @@ ipset add akamai 209.92.223.64/27
 ipset add akamai 216.253.153.0/24
 ipset add akamai 207.10.23.80/28
 ipset add akamai 12.227.153.200/29
+ipset add akamai 12.25.131.80/29
 ipset add akamai 12.25.131.88/29
 ipset add akamai 12.25.133.72/29
 ipset add akamai 12.25.133.80/29
 ipset add akamai 12.3.17.8/29
+ipset add akamai 12.3.55.96/29
 ipset add akamai 12.48.162.144/29
 ipset add akamai 12.48.162.152/29
 ipset add akamai 12.6.195.24/29
 ipset add akamai 12.6.195.32/29
+ipset add akamai 12.6.195.40/29
+ipset add akamai 12.6.195.48/29
 ipset add akamai 12.6.197.96/29
 ipset add akamai 12.6.198.88/29
 ipset add akamai 12.6.198.96/29
@@ -281,7 +285,6 @@ ipset add akamai 12.233.116.224/29
 ipset add akamai 12.234.135.72/29
 ipset add akamai 12.235.136.40/29
 ipset add akamai 12.3.200.200/29
-ipset add akamai 12.3.55.96/29
 ipset add akamai 12.30.212.48/29
 ipset add akamai 12.30.212.56/29
 ipset add akamai 12.32.44.64/29
@@ -396,6 +399,7 @@ ipset add akamai 216.253.153.0/24
 ipset add akamai 12.11.236.200/29
 ipset add akamai 12.160.12.0/29
 ipset add akamai 12.160.12.16/29
+ipset add akamai 12.3.55.96/29
 ipset add akamai 12.38.209.176/29
 ipset add akamai 12.47.208.0/24
 ipset add akamai 12.47.211.0/24
@@ -1214,6 +1218,7 @@ ipset add facebook 157.240.223.0/24
 ipset add facebook 157.240.224.0/24
 ipset add facebook 157.240.225.0/24
 ipset add facebook 157.240.226.0/24
+ipset add facebook 157.240.227.0/24
 ipset add facebook 157.240.229.0/24
 ipset add facebook 157.240.23.0/24
 ipset add facebook 157.240.231.0/24
@@ -1269,7 +1274,6 @@ ipset add facebook 173.252.64.0/19
 ipset add facebook 173.252.88.0/21
 ipset add facebook 173.252.96.0/19
 ipset add facebook 179.60.195.0/24
-ipset add facebook 185.60.217.0/24
 ipset add github 174.143.3.100/30
 ipset add github 64.124.138.32/28
 ipset add github 140.82.112.0/20
