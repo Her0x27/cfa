@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-04-25 00:51:14 UTC
+Last update: 2025-04-26 00:49:03 UTC
 
 ## Quick Start
 
@@ -45,7 +45,7 @@ chmod +x load-networks.sh
 - IPv6 Networks: 1 ([openai.ipset](networks/ipv6/openai.ipset))
 
 ## Akamai
-- IPv4 Networks: 748 ([akamai.ipset](networks/ipv4/akamai.ipset))
+- IPv4 Networks: 747 ([akamai.ipset](networks/ipv4/akamai.ipset))
 - IPv6 Networks: 426 ([akamai.ipset](networks/ipv6/akamai.ipset))
 
 ## Discord
@@ -88,11 +88,11 @@ chmod +x load-networks.sh
 - IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
 
 ## Facebook
-- IPv4 Networks: 508 ([facebook.ipset](networks/ipv4/facebook.ipset))
+- IPv4 Networks: 506 ([facebook.ipset](networks/ipv4/facebook.ipset))
 - IPv6 Networks: 262 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2006
+- Total IPv4 Networks: 2003
 - Total IPv6 Networks: 850
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
