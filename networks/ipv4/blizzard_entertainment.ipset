@@ -1,5 +1,5 @@
 # IPv4 networks for Blizzard Entertainment
-# Last updated: 2025-04-27 00:58:49 UTC
+# Last updated: 2025-04-28 00:57:54 UTC
 
 ipset add blizzard_entertainment 12.11.168.8/29
 ipset add blizzard_entertainment 12.129.207.136/29
