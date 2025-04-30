@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-04-29 00:58:38 UTC
+# Last updated: 2025-04-30 00:58:52 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -1469,7 +1469,6 @@ ipset add netflix 12.235.240.40/29
 ipset add netflix 12.235.240.48/29
 ipset add netflix 12.235.240.56/29
 ipset add netflix 12.235.240.8/29
-ipset add netflix 12.28.45.48/29
 ipset add netflix 12.50.141.80/29
 ipset add netflix 12.25.135.72/29
 ipset add netflix 12.3.16.32/29
