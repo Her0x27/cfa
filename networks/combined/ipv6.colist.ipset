@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-05-05 01:02:12 UTC
+# Last updated: 2025-05-06 00:59:53 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -703,6 +703,7 @@ ipset add github 2606:50c0:8000::/46
 ipset add gog 2600:6001:1abd::/48
 ipset add gog 2606:180::/32
 ipset add gog 2600:6001:1abd::/48
+ipset add netflix 2001:1890:1e01:8200::/56
 ipset add netflix 2600:5c00:421b::/48
 ipset add netflix 2a00:86c0:2008::/47
 ipset add netflix 2a00:86c0:2040::/47

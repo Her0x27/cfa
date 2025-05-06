@@ -1,5 +1,5 @@
 # IPv6 networks for YouTube
-# Last updated: 2025-05-05 00:57:26 UTC
+# Last updated: 2025-05-06 00:54:48 UTC
 
 ipset add youtube 2620:11a:a000::/40
 ipset add youtube 2620:120:e000::/40
