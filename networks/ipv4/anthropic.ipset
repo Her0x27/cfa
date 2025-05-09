@@ -1,5 +1,5 @@
 # IPv4 networks for Anthropic
-# Last updated: 2025-05-08 00:52:47 UTC
+# Last updated: 2025-05-09 00:52:16 UTC
 
 ipset add anthropic 160.79.104.0/23
 ipset add anthropic 208.185.3.128/29
