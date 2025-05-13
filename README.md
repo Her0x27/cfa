@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-05-12 00:54:51 UTC
+Last update: 2025-05-13 00:52:50 UTC
 
 ## Quick Start
 
@@ -88,11 +88,11 @@ chmod +x load-networks.sh
 - IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
 
 ## Facebook
-- IPv4 Networks: 504 ([facebook.ipset](networks/ipv4/facebook.ipset))
+- IPv4 Networks: 501 ([facebook.ipset](networks/ipv4/facebook.ipset))
 - IPv6 Networks: 264 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 1999
+- Total IPv4 Networks: 1996
 - Total IPv6 Networks: 852
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
