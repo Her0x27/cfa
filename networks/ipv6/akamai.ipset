@@ -1,5 +1,5 @@
 # IPv6 networks for Akamai
-# Last updated: 2025-05-14 00:54:33 UTC
+# Last updated: 2025-05-15 00:54:06 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -81,8 +81,10 @@ ipset add akamai 2a02:26f7:15c::/48
 ipset add akamai 2a02:26f7:15d::/48
 ipset add akamai 2a02:26f7:15e::/48
 ipset add akamai 2a02:26f7:15f::/48
+ipset add akamai 2a02:26f7:161::/48
 ipset add akamai 2a02:26f7:162::/48
 ipset add akamai 2a02:26f7:163::/48
+ipset add akamai 2a02:26f7:164::/48
 ipset add akamai 2a02:26f7:16::/48
 ipset add akamai 2a02:26f7:18::/48
 ipset add akamai 2a02:26f7:1a::/48
@@ -122,8 +124,6 @@ ipset add akamai 2a02:26f7:62::/48
 ipset add akamai 2a02:26f7:64::/48
 ipset add akamai 2a02:26f7:66::/48
 ipset add akamai 2a02:26f7:6::/48
-ipset add akamai 2a02:26f7:6a::/48
-ipset add akamai 2a02:26f7:70::/48
 ipset add akamai 2001:1890:1c05:400::/56
 ipset add akamai 2001:1890:1d01:2200::/56
 ipset add akamai 2001:1890:1d01:2300::/56
@@ -227,7 +227,6 @@ ipset add akamai 2001:4878:166::/48
 ipset add akamai 2001:4878:173::/48
 ipset add akamai 2001:4878:1e0::/44
 ipset add akamai 2001:4878:2007::/48
-ipset add akamai 2001:4878:2027::/48
 ipset add akamai 2001:4878:2031::/48
 ipset add akamai 2001:4878:2037::/48
 ipset add akamai 2001:4878:2048::/48
@@ -256,24 +255,18 @@ ipset add akamai 2001:4878:228::/48
 ipset add akamai 2001:4878:2321::/48
 ipset add akamai 2001:4878:2322::/48
 ipset add akamai 2001:4878:2323::/48
-ipset add akamai 2001:4878:2324::/48
 ipset add akamai 2001:4878:2347::/48
-ipset add akamai 2001:4878:2356::/48
-ipset add akamai 2001:4878:27::/48
 ipset add akamai 2001:4878:3068::/48
 ipset add akamai 2001:4878:31::/48
 ipset add akamai 2001:4878:321::/48
 ipset add akamai 2001:4878:322::/48
 ipset add akamai 2001:4878:323::/48
-ipset add akamai 2001:4878:324::/48
 ipset add akamai 2001:4878:347::/48
-ipset add akamai 2001:4878:356::/48
 ipset add akamai 2001:4878:37::/48
 ipset add akamai 2001:4878:39::/48
 ipset add akamai 2001:4878:4001::/48
 ipset add akamai 2001:4878:4003::/48
 ipset add akamai 2001:4878:4007::/48
-ipset add akamai 2001:4878:4027::/48
 ipset add akamai 2001:4878:4031::/48
 ipset add akamai 2001:4878:4037::/48
 ipset add akamai 2001:4878:4055::/48
@@ -290,7 +283,6 @@ ipset add akamai 2001:4878:4225::/48
 ipset add akamai 2001:4878:4321::/48
 ipset add akamai 2001:4878:4322::/48
 ipset add akamai 2001:4878:4323::/48
-ipset add akamai 2001:4878:4324::/48
 ipset add akamai 2001:4878:4347::/48
 ipset add akamai 2001:4878:48::/48
 ipset add akamai 2001:4878:62::/48
@@ -299,7 +291,6 @@ ipset add akamai 2001:4878:68::/48
 ipset add akamai 2001:4878:72::/48
 ipset add akamai 2001:4878:7::/48
 ipset add akamai 2001:4878:8007::/48
-ipset add akamai 2001:4878:8027::/48
 ipset add akamai 2001:4878:8031::/48
 ipset add akamai 2001:4878:8037::/48
 ipset add akamai 2001:4878:8048::/48
@@ -321,14 +312,23 @@ ipset add akamai 2001:4878:8228::/48
 ipset add akamai 2001:4878:8321::/48
 ipset add akamai 2001:4878:8322::/48
 ipset add akamai 2001:4878:8323::/48
-ipset add akamai 2001:4878:8324::/48
 ipset add akamai 2001:4878:8347::/48
-ipset add akamai 2001:4878:8356::/48
 ipset add akamai 2001:4878:a007::/48
-ipset add akamai 2001:4878:a027::/48
 ipset add akamai 2001:4878:a031::/48
 ipset add akamai 2001:4878:a037::/48
 ipset add akamai 2001:4878:a048::/48
+ipset add akamai 2001:4878:a062::/48
+ipset add akamai 2001:4878:a072::/48
+ipset add akamai 2001:4878:a151::/48
+ipset add akamai 2001:4878:a166::/48
+ipset add akamai 2001:4878:a173::/48
+ipset add akamai 2001:4878:a204::/48
+ipset add akamai 2001:4878:a215::/48
+ipset add akamai 2001:4878:a216::/48
+ipset add akamai 2001:4878:a220::/48
+ipset add akamai 2001:4878:a225::/48
+ipset add akamai 2001:4878:a228::/48
+ipset add akamai 2001:4878:a321::/48
 ipset add akamai 2001:4878:c1e0::/44
 ipset add akamai 2600:1400:2000::/48
 ipset add akamai 2600:1400:5::/48
