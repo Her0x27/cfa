@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-05-15 00:58:20 UTC
+# Last updated: 2025-05-16 00:59:58 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -1685,6 +1685,7 @@ ipset add origin 40.140.84.232/30
 ipset add origin 40.140.84.240/30
 ipset add origin 40.141.206.48/29
 ipset add origin 40.141.206.80/29
+ipset add origin 47.21.147.192/30
 ipset add origin 47.44.241.224/29
 ipset add origin 63.125.175.248/29
 ipset add origin 63.201.206.8/29
