@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-05-19 01:03:20 UTC
+# Last updated: 2025-05-20 01:00:18 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -871,6 +871,7 @@ ipset add facebook 102.132.118.0/24
 ipset add facebook 102.132.119.0/24
 ipset add facebook 102.132.120.0/24
 ipset add facebook 102.132.121.0/24
+ipset add facebook 102.132.122.0/24
 ipset add facebook 102.132.123.0/24
 ipset add facebook 102.132.125.0/24
 ipset add facebook 102.132.126.0/24
@@ -999,6 +1000,7 @@ ipset add facebook 12.188.205.152/29
 ipset add facebook 12.188.228.64/26
 ipset add facebook 12.191.126.248/29
 ipset add facebook 12.192.168.128/26
+ipset add facebook 12.20.5.192/29
 ipset add facebook 12.20.59.224/27
 ipset add facebook 12.201.0.0/29
 ipset add facebook 12.203.152.160/28
@@ -1107,6 +1109,7 @@ ipset add facebook 12.188.228.64/26
 ipset add facebook 12.14.38.0/26
 ipset add facebook 12.14.38.64/26
 ipset add facebook 12.159.100.64/26
+ipset add facebook 12.20.5.192/29
 ipset add facebook 12.44.203.16/29
 ipset add facebook 12.43.180.8/29
 ipset add facebook 12.10.18.32/29
@@ -1400,6 +1403,7 @@ ipset add netflix 54.82.128.64/26
 ipset add netflix 54.88.127.224/27
 ipset add netflix 69.31.141.128/26
 ipset add netflix 72.28.2.204/30
+ipset add netflix 12.166.39.160/29
 ipset add netflix 160.72.195.88/29
 ipset add netflix 173.11.70.224/29
 ipset add netflix 207.45.72.0/23
@@ -1490,6 +1494,7 @@ ipset add netflix 69.75.51.192/29
 ipset add netflix 70.91.31.32/29
 ipset add netflix 75.149.232.136/29
 ipset add netflix 207.45.72.0/23
+ipset add netflix 12.166.39.160/29
 ipset add netflix 12.219.236.0/29
 ipset add netflix 12.219.236.16/29
 ipset add netflix 12.219.236.8/29
