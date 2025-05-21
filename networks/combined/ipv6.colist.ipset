@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-05-20 01:00:18 UTC
+# Last updated: 2025-05-21 01:00:26 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -849,6 +849,8 @@ ipset add youtube 2620:11a:a03b::/48
 ipset add youtube 2620:11a:a03c::/48
 ipset add youtube 2620:11a:a03d::/48
 ipset add youtube 2620:11a:a03e::/48
+ipset add youtube 2620:11a:a040::/48
+ipset add youtube 2620:11a:a041::/48
 ipset add youtube 2620:11a:a042::/48
 ipset add youtube 2620:11a:a043::/48
 ipset add youtube 2620:11a:a044::/48

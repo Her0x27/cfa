@@ -1,4 +1,4 @@
 # IPv6 networks for OpenAI
-# Last updated: 2025-05-20 00:53:59 UTC
+# Last updated: 2025-05-21 00:53:28 UTC
 
 ipset add openai 2001:1890:1a33:1400::/56
