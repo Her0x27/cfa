@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-05-27 00:59:37 UTC
+# Last updated: 2025-05-28 01:00:15 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
