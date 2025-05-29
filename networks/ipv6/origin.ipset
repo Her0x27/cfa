@@ -1,5 +1,5 @@
 # IPv6 networks for Origin
-# Last updated: 2025-05-28 00:57:47 UTC
+# Last updated: 2025-05-29 00:58:01 UTC
 
 ipset add origin 2001:1890:18bb:9300::/56
 ipset add origin 2001:1890:18bb:9400::/56
