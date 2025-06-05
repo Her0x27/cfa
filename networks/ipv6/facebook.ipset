@@ -1,5 +1,5 @@
 # IPv6 networks for Facebook
-# Last updated: 2025-06-04 01:01:52 UTC
+# Last updated: 2025-06-05 01:00:09 UTC
 
 ipset add facebook 2001:56b:134::/48
 ipset add facebook 2001:56b:8106::/48
@@ -243,7 +243,6 @@ ipset add facebook 2a03:2880:f077::/48
 ipset add facebook 2a03:2880:f078::/48
 ipset add facebook 2a03:2880:f07d::/48
 ipset add facebook 2a03:2880:f07e::/48
-ipset add facebook 2a03:2880:f080::/48
 ipset add facebook 2a03:2880:f082::/48
 ipset add facebook 2a03:2880:f083::/48
 ipset add facebook 2a03:2880:f084::/48
@@ -271,3 +270,4 @@ ipset add facebook 2a03:2880:f10d::/48
 ipset add facebook 2a03:2880:f10e::/48
 ipset add facebook 2a03:2880:f10f::/48
 ipset add facebook 2a03:2880:f110::/48
+ipset add facebook 2a03:2880:f111::/48
