@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-06-05 01:00:09 UTC
+# Last updated: 2025-06-06 01:00:10 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -1204,6 +1204,7 @@ ipset add facebook 157.240.202.0/24
 ipset add facebook 157.240.203.0/24
 ipset add facebook 157.240.204.0/24
 ipset add facebook 157.240.205.0/24
+ipset add facebook 157.240.208.0/24
 ipset add facebook 157.240.209.0/24
 ipset add facebook 157.240.210.0/24
 ipset add facebook 157.240.211.0/24
@@ -1272,7 +1273,6 @@ ipset add facebook 179.60.195.0/24
 ipset add facebook 185.60.217.0/24
 ipset add facebook 185.60.218.0/24
 ipset add facebook 185.60.219.0/24
-ipset add facebook 185.89.218.0/23
 ipset add github 174.143.3.100/30
 ipset add github 64.124.138.32/28
 ipset add github 140.82.112.0/20

@@ -1,4 +1,4 @@
 # IPv6 networks for Blizzard Entertainment
-# Last updated: 2025-06-05 00:57:44 UTC
+# Last updated: 2025-06-06 00:57:44 UTC
 
 ipset add blizzard_entertainment 2001:1890:1c23:db00::/56

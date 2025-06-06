@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-06-05 00:53:23 UTC
+Last update: 2025-06-06 00:53:03 UTC
 
 ## Quick Start
 
@@ -60,7 +60,7 @@ chmod +x load-networks.sh
 
 ## YouTube
 - IPv4 Networks: 41 ([youtube.ipset](networks/ipv4/youtube.ipset))
-- IPv6 Networks: 26 ([youtube.ipset](networks/ipv6/youtube.ipset))
+- IPv6 Networks: 25 ([youtube.ipset](networks/ipv6/youtube.ipset))
 
 ## Epic Games
 - IPv4 Networks: 6 ([epic_games.ipset](networks/ipv4/epic_games.ipset))
@@ -93,7 +93,7 @@ chmod +x load-networks.sh
 
 ## Summary
 - Total IPv4 Networks: 2002
-- Total IPv6 Networks: 860
+- Total IPv6 Networks: 859
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)
