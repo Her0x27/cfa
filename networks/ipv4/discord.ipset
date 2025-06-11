@@ -1,5 +1,5 @@
 # IPv4 networks for Discord
-# Last updated: 2025-06-10 00:56:47 UTC
+# Last updated: 2025-06-11 00:56:57 UTC
 
 ipset add discord 64.71.8.96/29
 ipset add discord 198.186.219.0/24
