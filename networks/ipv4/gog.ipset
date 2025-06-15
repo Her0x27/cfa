@@ -1,5 +1,5 @@
 # IPv4 networks for GOG
-# Last updated: 2025-06-14 00:55:03 UTC
+# Last updated: 2025-06-15 01:02:23 UTC
 
 ipset add gog 174.142.131.56/29
 ipset add gog 198.72.102.64/27

@@ -1,5 +1,5 @@
 # IPv6 networks for Anthropic
-# Last updated: 2025-06-14 00:52:09 UTC
+# Last updated: 2025-06-15 00:59:48 UTC
 
 ipset add anthropic 2607:6bc0::/32
 ipset add anthropic 2607:6bc0::/48
