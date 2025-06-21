@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-06-20 01:02:03 UTC
+# Last updated: 2025-06-21 01:01:47 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -746,6 +746,7 @@ ipset add akamai 172.224.32.0/24
 ipset add akamai 172.224.33.0/24
 ipset add akamai 172.224.34.0/24
 ipset add akamai 172.224.35.0/24
+ipset add akamai 172.224.37.0/24
 ipset add akamai 172.224.38.0/24
 ipset add akamai 172.224.39.0/24
 ipset add akamai 172.224.4.0/24
@@ -799,6 +800,8 @@ ipset add akamai 172.225.0.0/24
 ipset add akamai 172.225.10.0/24
 ipset add akamai 172.225.100.0/24
 ipset add akamai 172.225.103.0/24
+ipset add akamai 172.225.104.0/24
+ipset add akamai 172.225.105.0/24
 ipset add akamai 172.225.106.0/24
 ipset add akamai 172.225.108.0/24
 ipset add akamai 172.225.110.0/24
@@ -1022,9 +1025,6 @@ ipset add akamai 172.226.131.0/24
 ipset add akamai 172.226.132.0/24
 ipset add akamai 172.226.134.0/24
 ipset add akamai 172.226.136.0/24
-ipset add akamai 172.226.137.0/24
-ipset add akamai 172.226.138.0/24
-ipset add akamai 172.226.140.0/24
 ipset add akamai 173.223.54.0/24
 ipset add akamai 173.223.80.0/20
 ipset add akamai 184.24.0.0/20
@@ -2220,6 +2220,7 @@ ipset add facebook 69.63.176.0/21
 ipset add facebook 69.63.184.0/21
 ipset add github 174.143.3.100/30
 ipset add github 64.124.138.32/28
+ipset add github 67.208.236.122/31
 ipset add github 140.82.112.0/20
 ipset add github 143.55.64.0/20
 ipset add github 192.30.252.0/22

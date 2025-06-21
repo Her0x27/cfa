@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-06-20 00:54:01 UTC
+Last update: 2025-06-21 00:53:16 UTC
 
 ## Quick Start
 
@@ -33,7 +33,7 @@ chmod +x load-networks.sh
 
 ## Available Company Lists
 ## GitHub
-- IPv4 Networks: 28 ([github.ipset](networks/ipv4/github.ipset))
+- IPv4 Networks: 29 ([github.ipset](networks/ipv4/github.ipset))
 - IPv6 Networks: 5 ([github.ipset](networks/ipv6/github.ipset))
 
 ## Anthropic
@@ -92,7 +92,7 @@ chmod +x load-networks.sh
 - IPv6 Networks: 467 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2945
+- Total IPv4 Networks: 2946
 - Total IPv6 Networks: 1393
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
