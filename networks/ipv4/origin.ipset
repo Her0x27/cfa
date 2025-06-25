@@ -1,5 +1,5 @@
 # IPv4 networks for Origin
-# Last updated: 2025-06-24 00:59:49 UTC
+# Last updated: 2025-06-25 01:00:55 UTC
 
 ipset add origin 209.212.179.80/28
 ipset add origin 216.116.102.128/27
@@ -24,6 +24,7 @@ ipset add origin 12.16.91.144/29
 ipset add origin 12.168.110.64/28
 ipset add origin 12.168.39.160/29
 ipset add origin 12.170.143.136/29
+ipset add origin 12.174.170.144/29
 ipset add origin 12.180.71.136/29
 ipset add origin 12.184.121.104/29
 ipset add origin 12.2.121.152/29
@@ -38,7 +39,6 @@ ipset add origin 12.21.80.40/29
 ipset add origin 12.215.74.32/29
 ipset add origin 12.220.36.32/29
 ipset add origin 12.220.37.248/29
-ipset add origin 12.227.56.24/29
 ipset add origin 12.230.17.56/29
 ipset add origin 12.238.22.216/29
 ipset add origin 12.3.112.248/29
@@ -138,7 +138,6 @@ ipset add origin 40.140.84.232/30
 ipset add origin 40.140.84.240/30
 ipset add origin 40.141.206.48/29
 ipset add origin 40.141.206.80/29
-ipset add origin 47.21.147.192/30
 ipset add origin 47.44.241.224/29
 ipset add origin 63.125.175.248/29
 ipset add origin 63.201.206.8/29
@@ -227,6 +226,7 @@ ipset add origin 99.57.212.216/29
 ipset add origin 99.57.212.224/29
 ipset add origin 99.60.217.216/29
 ipset add origin 12.221.201.152/29
+ipset add origin 12.227.56.24/29
 ipset add origin 12.230.139.184/29
 ipset add origin 12.36.248.120/29
 ipset add origin 205.197.211.200/31
@@ -275,7 +275,6 @@ ipset add origin 12.21.80.40/29
 ipset add origin 12.215.74.32/29
 ipset add origin 12.220.36.32/29
 ipset add origin 12.220.37.248/29
-ipset add origin 12.227.56.24/29
 ipset add origin 12.230.17.56/29
 ipset add origin 12.238.22.216/29
 ipset add origin 12.3.112.248/29
