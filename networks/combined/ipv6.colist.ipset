@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-06-28 01:01:15 UTC
+# Last updated: 2025-06-29 01:08:34 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -394,10 +394,6 @@ ipset add akamai 2a02:26f7:b270::/48
 ipset add akamai 2a02:26f7:b271::/48
 ipset add akamai 2a02:26f7:b272::/48
 ipset add akamai 2a02:26f7:b273::/48
-ipset add akamai 2a02:26f7:b274::/48
-ipset add akamai 2a02:26f7:b275::/48
-ipset add akamai 2a02:26f7:b276::/48
-ipset add akamai 2a02:26f7:b277::/48
 ipset add akamai 2a02:26f7:b278::/48
 ipset add akamai 2a02:26f7:b279::/48
 ipset add akamai 2a02:26f7:b27a::/48
@@ -414,10 +410,6 @@ ipset add akamai 2a02:26f7:b284::/48
 ipset add akamai 2a02:26f7:b285::/48
 ipset add akamai 2a02:26f7:b286::/48
 ipset add akamai 2a02:26f7:b287::/48
-ipset add akamai 2a02:26f7:b288::/48
-ipset add akamai 2a02:26f7:b289::/48
-ipset add akamai 2a02:26f7:b28a::/48
-ipset add akamai 2a02:26f7:b28b::/48
 ipset add akamai 2a02:26f7:b28c::/48
 ipset add akamai 2a02:26f7:b28d::/48
 ipset add akamai 2a02:26f7:b28e::/48
@@ -427,6 +419,14 @@ ipset add akamai 2a02:26f7:b291::/48
 ipset add akamai 2a02:26f7:b292::/48
 ipset add akamai 2a02:26f7:b293::/48
 ipset add akamai 2a02:26f7:b2::/48
+ipset add akamai 2a02:26f7:b340::/48
+ipset add akamai 2a02:26f7:b341::/48
+ipset add akamai 2a02:26f7:b342::/48
+ipset add akamai 2a02:26f7:b343::/48
+ipset add akamai 2a02:26f7:b344::/48
+ipset add akamai 2a02:26f7:b345::/48
+ipset add akamai 2a02:26f7:b346::/48
+ipset add akamai 2a02:26f7:b347::/48
 ipset add akamai 2001:1890:1c05:400::/56
 ipset add akamai 2001:1890:1d01:2200::/56
 ipset add akamai 2001:1890:1d01:2300::/56
@@ -992,6 +992,7 @@ ipset add facebook 2a03:2880:f04e::/48
 ipset add facebook 2a03:2880:f050::/48
 ipset add facebook 2a03:2880:f052::/48
 ipset add facebook 2a03:2880:f053::/48
+ipset add facebook 2a03:2880:f057::/48
 ipset add facebook 2a03:2880:f058::/48
 ipset add facebook 2a03:2880:f05b::/48
 ipset add facebook 2a03:2880:f05e::/48
@@ -1070,6 +1071,7 @@ ipset add facebook 2a03:2880:f14e::/48
 ipset add facebook 2a03:2880:f150::/48
 ipset add facebook 2a03:2880:f152::/48
 ipset add facebook 2a03:2880:f153::/48
+ipset add facebook 2a03:2880:f157::/48
 ipset add facebook 2a03:2880:f158::/48
 ipset add facebook 2a03:2880:f15b::/48
 ipset add facebook 2a03:2880:f15e::/48
@@ -1147,6 +1149,7 @@ ipset add facebook 2a03:2880:f24e::/48
 ipset add facebook 2a03:2880:f250::/48
 ipset add facebook 2a03:2880:f252::/48
 ipset add facebook 2a03:2880:f253::/48
+ipset add facebook 2a03:2880:f257::/48
 ipset add facebook 2a03:2880:f258::/48
 ipset add facebook 2a03:2880:f25b::/48
 ipset add facebook 2a03:2880:f25e::/48
