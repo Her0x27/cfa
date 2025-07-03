@@ -1,5 +1,5 @@
 # IPv6 networks for Facebook
-# Last updated: 2025-07-02 01:03:25 UTC
+# Last updated: 2025-07-03 01:02:38 UTC
 
 ipset add facebook 2001:56b:134::/48
 ipset add facebook 2001:56b:8106::/48
@@ -231,7 +231,6 @@ ipset add facebook 2a03:2880:f058::/48
 ipset add facebook 2a03:2880:f05b::/48
 ipset add facebook 2a03:2880:f05e::/48
 ipset add facebook 2a03:2880:f060::/48
-ipset add facebook 2a03:2880:f061::/48
 ipset add facebook 2a03:2880:f065::/48
 ipset add facebook 2a03:2880:f066::/48
 ipset add facebook 2a03:2880:f068::/48
@@ -310,7 +309,6 @@ ipset add facebook 2a03:2880:f158::/48
 ipset add facebook 2a03:2880:f15b::/48
 ipset add facebook 2a03:2880:f15e::/48
 ipset add facebook 2a03:2880:f160::/48
-ipset add facebook 2a03:2880:f161::/48
 ipset add facebook 2a03:2880:f162::/48
 ipset add facebook 2a03:2880:f163::/48
 ipset add facebook 2a03:2880:f165::/48
@@ -337,7 +335,6 @@ ipset add facebook 2a03:2880:f189::/48
 ipset add facebook 2a03:2880:f1fc::/47
 ipset add facebook 2a03:2880:f1fc::/48
 ipset add facebook 2a03:2880:f1fd::/48
-ipset add facebook 2a03:2880:f1ff::/48
 ipset add facebook 2a03:2880:f201::/48
 ipset add facebook 2a03:2880:f202::/48
 ipset add facebook 2a03:2880:f203::/48
@@ -388,7 +385,6 @@ ipset add facebook 2a03:2880:f258::/48
 ipset add facebook 2a03:2880:f25b::/48
 ipset add facebook 2a03:2880:f25e::/48
 ipset add facebook 2a03:2880:f260::/48
-ipset add facebook 2a03:2880:f261::/48
 ipset add facebook 2a03:2880:f262::/48
 ipset add facebook 2a03:2880:f263::/48
 ipset add facebook 2a03:2880:f265::/48
@@ -412,10 +408,10 @@ ipset add facebook 2a03:2880:f27c::/48
 ipset add facebook 2a03:2880:f284::/48
 ipset add facebook 2a03:2880:f288::/48
 ipset add facebook 2a03:2880:f289::/48
-ipset add facebook 2a03:2880:f2ff::/48
 ipset add facebook 2a03:2880:f329::/48
 ipset add facebook 2a03:2880:f32a::/48
 ipset add facebook 2a03:2880:f32b::/48
+ipset add facebook 2a03:2880:f32d::/48
 ipset add facebook 2a03:2880:f32e::/48
 ipset add facebook 2a03:2880:f32f::/48
 ipset add facebook 2a03:2880:f330::/48
