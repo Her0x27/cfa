@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-07-08 01:02:31 UTC
+# Last updated: 2025-07-10 01:03:39 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -436,6 +436,7 @@ ipset add akamai 2001:1890:1d02:2600::/56
 ipset add akamai 2001:1890:1d02:2700::/56
 ipset add akamai 2001:1890:1d02:2900::/56
 ipset add akamai 2001:1890:1d02:2a00::/56
+ipset add akamai 2001:1890:1d03:2900::/56
 ipset add akamai 2001:1890:1d03:4b00::/56
 ipset add akamai 2001:1890:1d07:2a00::/56
 ipset add akamai 2001:1890:1d09:c00::/56
@@ -767,6 +768,7 @@ ipset add akamai 2620:104:a00b::/48
 ipset add anthropic 2607:6bc0::/32
 ipset add anthropic 2607:6bc0::/48
 ipset add blizzard_entertainment 2001:1890:1c23:db00::/56
+ipset add epic_games 2600:5800:3b37::/48
 ipset add facebook 2001:56b:134::/48
 ipset add facebook 2001:56b:8106::/48
 ipset add facebook 2600:c02:2:1::/64

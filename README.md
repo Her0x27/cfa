@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-07-08 00:55:02 UTC
+Last update: 2025-07-10 00:55:38 UTC
 
 ## Quick Start
 
@@ -46,7 +46,7 @@ chmod +x load-networks.sh
 
 ## Akamai
 - IPv4 Networks: 1600 ([akamai.ipset](networks/ipv4/akamai.ipset))
-- IPv6 Networks: 763 ([akamai.ipset](networks/ipv6/akamai.ipset))
+- IPv6 Networks: 764 ([akamai.ipset](networks/ipv6/akamai.ipset))
 
 ## Discord
 - IPv4 Networks: 2 ([discord.ipset](networks/ipv4/discord.ipset))
@@ -63,9 +63,8 @@ chmod +x load-networks.sh
 - IPv6 Networks: 28 ([youtube.ipset](networks/ipv6/youtube.ipset))
 
 ## Epic Games
-- IPv4 Networks: 6 ([epic_games.ipset](networks/ipv4/epic_games.ipset))
-- IPv6 Networks: 0
-0 ([epic_games.ipset](networks/ipv6/epic_games.ipset))
+- IPv4 Networks: 7 ([epic_games.ipset](networks/ipv4/epic_games.ipset))
+- IPv6 Networks: 1 ([epic_games.ipset](networks/ipv6/epic_games.ipset))
 
 ## GOG
 - IPv4 Networks: 64 ([gog.ipset](networks/ipv4/gog.ipset))
@@ -84,16 +83,16 @@ chmod +x load-networks.sh
 - IPv6 Networks: 41 ([netflix.ipset](networks/ipv6/netflix.ipset))
 
 ## Twitter
-- IPv4 Networks: 80 ([twitter.ipset](networks/ipv4/twitter.ipset))
+- IPv4 Networks: 84 ([twitter.ipset](networks/ipv4/twitter.ipset))
 - IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
 
 ## Facebook
-- IPv4 Networks: 597 ([facebook.ipset](networks/ipv4/facebook.ipset))
+- IPv4 Networks: 598 ([facebook.ipset](networks/ipv4/facebook.ipset))
 - IPv6 Networks: 463 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2948
-- Total IPv6 Networks: 1392
+- Total IPv4 Networks: 2954
+- Total IPv6 Networks: 1394
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)

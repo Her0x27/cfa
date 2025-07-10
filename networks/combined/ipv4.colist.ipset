@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-07-08 01:02:31 UTC
+# Last updated: 2025-07-10 01:03:39 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -810,7 +810,6 @@ ipset add akamai 172.225.114.0/24
 ipset add akamai 172.225.116.0/24
 ipset add akamai 172.225.118.0/24
 ipset add akamai 172.225.119.0/24
-ipset add akamai 172.225.12.0/24
 ipset add akamai 172.225.120.0/24
 ipset add akamai 172.225.121.0/24
 ipset add akamai 172.225.122.0/24
@@ -819,7 +818,6 @@ ipset add akamai 172.225.124.0/24
 ipset add akamai 172.225.126.0/24
 ipset add akamai 172.225.127.0/24
 ipset add akamai 172.225.129.0/24
-ipset add akamai 172.225.13.0/24
 ipset add akamai 172.225.130.0/24
 ipset add akamai 172.225.131.0/24
 ipset add akamai 172.225.132.0/24
@@ -959,6 +957,7 @@ ipset add akamai 172.225.42.0/24
 ipset add akamai 172.225.43.0/24
 ipset add akamai 172.225.44.0/24
 ipset add akamai 172.225.46.0/24
+ipset add akamai 172.225.48.0/24
 ipset add akamai 172.225.51.0/24
 ipset add akamai 172.225.52.0/24
 ipset add akamai 172.225.54.0/24
@@ -1025,6 +1024,7 @@ ipset add akamai 172.226.134.0/24
 ipset add akamai 172.226.136.0/24
 ipset add akamai 172.226.137.0/24
 ipset add akamai 172.226.138.0/24
+ipset add akamai 172.226.140.0/24
 ipset add akamai 173.223.54.0/24
 ipset add akamai 173.223.80.0/20
 ipset add akamai 184.24.0.0/20
@@ -1617,6 +1617,7 @@ ipset add blizzard_entertainment 99.91.140.160/29
 ipset add discord 64.71.8.96/29
 ipset add discord 198.186.219.0/24
 ipset add epic_games 66.57.18.32/29
+ipset add epic_games 70.61.199.216/29
 ipset add epic_games 208.118.70.216/29
 ipset add epic_games 208.184.95.0/29
 ipset add epic_games 209.253.40.156/30
@@ -2149,6 +2150,7 @@ ipset add facebook 31.13.70.0/24
 ipset add facebook 31.13.71.0/24
 ipset add facebook 31.13.72.0/24
 ipset add facebook 31.13.73.0/24
+ipset add facebook 31.13.76.0/24
 ipset add facebook 31.13.79.0/24
 ipset add facebook 31.13.80.0/24
 ipset add facebook 31.13.82.0/24
@@ -2878,6 +2880,10 @@ ipset add twitter 209.237.195.0/24
 ipset add twitter 209.237.196.0/24
 ipset add twitter 209.237.198.0/24
 ipset add twitter 209.237.200.0/24
+ipset add twitter 209.237.201.0/24
+ipset add twitter 209.237.202.0/24
+ipset add twitter 209.237.203.0/24
+ipset add twitter 209.237.204.0/24
 ipset add twitter 64.63.30.0/24
 ipset add twitter 64.63.31.0/24
 ipset add twitter 64.63.46.0/24

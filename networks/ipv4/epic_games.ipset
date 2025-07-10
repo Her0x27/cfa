@@ -1,7 +1,8 @@
 # IPv4 networks for Epic Games
-# Last updated: 2025-07-08 00:58:12 UTC
+# Last updated: 2025-07-10 00:59:04 UTC
 
 ipset add epic_games 66.57.18.32/29
+ipset add epic_games 70.61.199.216/29
 ipset add epic_games 208.118.70.216/29
 ipset add epic_games 208.184.95.0/29
 ipset add epic_games 209.253.40.156/30
