@@ -1,5 +1,5 @@
 # IPv4 networks for Facebook
-# Last updated: 2025-07-14 01:07:01 UTC
+# Last updated: 2025-07-15 01:05:46 UTC
 
 ipset add facebook 128.177.112.16/29
 ipset add facebook 198.24.63.160/29

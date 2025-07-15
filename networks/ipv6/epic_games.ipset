@@ -1,4 +1,4 @@
 # IPv6 networks for Epic Games
-# Last updated: 2025-07-14 01:02:25 UTC
+# Last updated: 2025-07-15 01:01:15 UTC
 
 ipset add epic_games 2600:5800:3b37::/48

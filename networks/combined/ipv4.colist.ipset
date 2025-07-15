@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-07-14 01:07:01 UTC
+# Last updated: 2025-07-15 01:05:46 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -877,7 +877,6 @@ ipset add akamai 172.225.201.0/24
 ipset add akamai 172.225.202.0/24
 ipset add akamai 172.225.203.0/24
 ipset add akamai 172.225.204.0/24
-ipset add akamai 172.225.206.0/24
 ipset add akamai 172.225.207.0/24
 ipset add akamai 172.225.208.0/24
 ipset add akamai 172.225.209.0/24
@@ -995,7 +994,6 @@ ipset add akamai 172.225.97.0/24
 ipset add akamai 172.225.98.0/24
 ipset add akamai 172.225.99.0/24
 ipset add akamai 172.226.0.0/24
-ipset add akamai 172.226.102.0/24
 ipset add akamai 172.226.104.0/24
 ipset add akamai 172.226.106.0/24
 ipset add akamai 172.226.108.0/24
@@ -1025,6 +1023,8 @@ ipset add akamai 172.226.148.0/24
 ipset add akamai 172.226.15.0/24
 ipset add akamai 172.226.150.0/24
 ipset add akamai 172.226.151.0/24
+ipset add akamai 172.226.152.0/24
+ipset add akamai 172.226.153.0/24
 ipset add akamai 173.223.54.0/24
 ipset add akamai 173.223.80.0/20
 ipset add akamai 184.24.0.0/20
@@ -2540,6 +2540,7 @@ ipset add origin 12.21.80.40/29
 ipset add origin 12.215.74.32/29
 ipset add origin 12.220.36.32/29
 ipset add origin 12.220.37.248/29
+ipset add origin 12.227.56.24/29
 ipset add origin 12.230.17.56/29
 ipset add origin 12.238.22.216/29
 ipset add origin 12.3.112.248/29
@@ -2552,7 +2553,6 @@ ipset add origin 12.68.151.176/29
 ipset add origin 12.70.163.0/29
 ipset add origin 12.8.48.40/29
 ipset add origin 150.220.215.0/27
-ipset add origin 155.212.51.80/28
 ipset add origin 165.166.36.200/29
 ipset add origin 173.198.128.192/29
 ipset add origin 173.237.216.232/29
@@ -2727,7 +2727,6 @@ ipset add origin 99.57.212.216/29
 ipset add origin 99.57.212.224/29
 ipset add origin 99.60.217.216/29
 ipset add origin 12.221.201.152/29
-ipset add origin 12.227.56.24/29
 ipset add origin 12.230.139.184/29
 ipset add origin 12.36.248.120/29
 ipset add origin 205.197.211.200/31
@@ -2776,6 +2775,7 @@ ipset add origin 12.21.80.40/29
 ipset add origin 12.215.74.32/29
 ipset add origin 12.220.36.32/29
 ipset add origin 12.220.37.248/29
+ipset add origin 12.227.56.24/29
 ipset add origin 12.230.17.56/29
 ipset add origin 12.238.22.216/29
 ipset add origin 12.3.112.248/29
