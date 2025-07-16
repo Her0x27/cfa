@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-07-15 01:05:46 UTC
+# Last updated: 2025-07-16 01:04:25 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -798,6 +798,7 @@ ipset add facebook 2a03:2887:ff33::/48
 ipset add facebook 2a03:2887:ff37::/48
 ipset add facebook 2a03:2887:ff38::/48
 ipset add facebook 2a03:2887:ff39::/48
+ipset add facebook 2a03:2887:ff3a::/48
 ipset add facebook 2a03:2887:ff3b::/48
 ipset add facebook 2a03:2887:ff3f::/48
 ipset add facebook 2a03:2887:ff40::/48
