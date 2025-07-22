@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-07-22 00:57:25 UTC
+Last update: 2025-07-22 22:22:13 UTC
 
 ## Quick Start
 
@@ -35,6 +35,11 @@ chmod +x load-networks.sh
 ## GitHub
 - IPv4 Networks: 29 ([github.ipset](networks/ipv4/github.ipset))
 - IPv6 Networks: 5 ([github.ipset](networks/ipv6/github.ipset))
+
+## Digital Extremes
+- IPv4 Networks: 2 ([digital_extremes.ipset](networks/ipv4/digital_extremes.ipset))
+- IPv6 Networks: 0
+0 ([digital_extremes.ipset](networks/ipv6/digital_extremes.ipset))
 
 ## Anthropic
 - IPv4 Networks: 4 ([anthropic.ipset](networks/ipv4/anthropic.ipset))
@@ -83,7 +88,7 @@ chmod +x load-networks.sh
 - IPv6 Networks: 41 ([netflix.ipset](networks/ipv6/netflix.ipset))
 
 ## Twitter
-- IPv4 Networks: 80 ([twitter.ipset](networks/ipv4/twitter.ipset))
+- IPv4 Networks: 79 ([twitter.ipset](networks/ipv4/twitter.ipset))
 - IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
 
 ## Facebook
@@ -91,7 +96,7 @@ chmod +x load-networks.sh
 - IPv6 Networks: 455 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2984
+- Total IPv4 Networks: 2985
 - Total IPv6 Networks: 1388
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)

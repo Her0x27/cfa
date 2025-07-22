@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-07-22 01:05:02 UTC
+# Last updated: 2025-07-22 22:32:35 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -1615,6 +1615,8 @@ ipset add blizzard_entertainment 208.185.171.224/29
 ipset add blizzard_entertainment 69.174.116.32/29
 ipset add blizzard_entertainment 99.103.227.104/29
 ipset add blizzard_entertainment 99.91.140.160/29
+ipset add digital_extremes 64.140.115.248/29
+ipset add digital_extremes 96.47.186.0/24
 ipset add discord 64.71.8.96/29
 ipset add discord 198.186.219.0/24
 ipset add epic_games 66.57.18.32/29
@@ -2927,7 +2929,6 @@ ipset add twitter 69.12.62.0/24
 ipset add twitter 69.12.63.0/24
 ipset add twitter 69.195.160.0/24
 ipset add twitter 69.195.162.0/24
-ipset add twitter 69.195.166.0/24
 ipset add twitter 69.195.168.0/24
 ipset add twitter 69.195.174.0/24
 ipset add twitter 69.195.178.0/24

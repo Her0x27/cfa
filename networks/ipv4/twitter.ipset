@@ -1,5 +1,5 @@
 # IPv4 networks for Twitter
-# Last updated: 2025-07-22 01:03:17 UTC
+# Last updated: 2025-07-22 22:30:06 UTC
 
 ipset add twitter 128.177.123.16/28
 ipset add twitter 198.24.32.64/28
@@ -70,7 +70,6 @@ ipset add twitter 69.12.62.0/24
 ipset add twitter 69.12.63.0/24
 ipset add twitter 69.195.160.0/24
 ipset add twitter 69.195.162.0/24
-ipset add twitter 69.195.166.0/24
 ipset add twitter 69.195.168.0/24
 ipset add twitter 69.195.174.0/24
 ipset add twitter 69.195.178.0/24
