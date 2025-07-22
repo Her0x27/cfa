@@ -1,5 +1,5 @@
 # Combined IPv6 networks
-# Last updated: 2025-07-17 01:05:29 UTC
+# Last updated: 2025-07-22 01:05:02 UTC
 
 ipset add akamai 2600:1400::/24
 ipset add akamai 2001:1890:1c45:8200::/56
@@ -437,6 +437,7 @@ ipset add akamai 2001:1890:1d02:2700::/56
 ipset add akamai 2001:1890:1d02:2900::/56
 ipset add akamai 2001:1890:1d02:2a00::/56
 ipset add akamai 2001:1890:1d03:2900::/56
+ipset add akamai 2001:1890:1d03:2a00::/56
 ipset add akamai 2001:1890:1d03:4b00::/56
 ipset add akamai 2001:1890:1d07:2a00::/56
 ipset add akamai 2001:1890:1d09:c00::/56
@@ -458,7 +459,6 @@ ipset add akamai 2001:56a:2:4::/64
 ipset add akamai 2001:56a:2:9::/64
 ipset add akamai 2001:56a:800a::/48
 ipset add akamai 2001:56b:1:102::/64
-ipset add akamai 2001:56b:1:103::/64
 ipset add akamai 2600:5c00:20e3::/48
 ipset add akamai 2001:4878::/32
 ipset add akamai 2001:590:1009::/48
@@ -522,7 +522,6 @@ ipset add akamai 2001:56a:2:4::/64
 ipset add akamai 2001:56a:2:9::/64
 ipset add akamai 2001:56a:800a::/48
 ipset add akamai 2001:56b:1:102::/64
-ipset add akamai 2001:56b:1:103::/64
 ipset add akamai 2600:5c00:20e3::/48
 ipset add akamai 2620:104:a000::/44
 ipset add akamai 2001:4878:151::/48
@@ -1299,6 +1298,7 @@ ipset add origin 2001:1890:1f67:4800::/56
 ipset add origin 2001:1890:1f80:1400::/56
 ipset add origin 2001:1890:1f8b:1500::/56
 ipset add origin 2001:1890:2021:8a00::/56
+ipset add origin 2600:6001:197b::/48
 ipset add origin 2600:6001:f54::/48
 ipset add origin 2600:6c36:109::/48
 ipset add origin 2605:ed00:e5c6::/48
@@ -1307,10 +1307,12 @@ ipset add origin 2605:a404:1a87::/48
 ipset add origin 2605:ed00:31f7::/48
 ipset add origin 2605:ed00:69d2::/48
 ipset add origin 2600:5800:fc18::/48
+ipset add origin 2600:6001:b7d::/48
 ipset add origin 2600:6c35:4fa::/48
 ipset add origin 2600:6c36:814::/48
 ipset add origin 2600:6c2e:c1e::/48
 ipset add origin 2605:a401:85a5::/48
+ipset add origin 2600:6001:197b::/48
 ipset add origin 2600:6001:f54::/48
 ipset add origin 2600:6c36:109::/48
 ipset add origin 2605:ed00:e5c6::/48

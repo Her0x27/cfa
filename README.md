@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-07-17 00:57:50 UTC
+Last update: 2025-07-22 00:57:25 UTC
 
 ## Quick Start
 
@@ -45,8 +45,8 @@ chmod +x load-networks.sh
 - IPv6 Networks: 1 ([openai.ipset](networks/ipv6/openai.ipset))
 
 ## Akamai
-- IPv4 Networks: 1600 ([akamai.ipset](networks/ipv4/akamai.ipset))
-- IPv6 Networks: 764 ([akamai.ipset](networks/ipv6/akamai.ipset))
+- IPv4 Networks: 1601 ([akamai.ipset](networks/ipv4/akamai.ipset))
+- IPv6 Networks: 763 ([akamai.ipset](networks/ipv6/akamai.ipset))
 
 ## Discord
 - IPv4 Networks: 2 ([discord.ipset](networks/ipv4/discord.ipset))
@@ -71,8 +71,8 @@ chmod +x load-networks.sh
 - IPv6 Networks: 3 ([gog.ipset](networks/ipv6/gog.ipset))
 
 ## Origin
-- IPv4 Networks: 322 ([origin.ipset](networks/ipv4/origin.ipset))
-- IPv6 Networks: 44 ([origin.ipset](networks/ipv6/origin.ipset))
+- IPv4 Networks: 323 ([origin.ipset](networks/ipv4/origin.ipset))
+- IPv6 Networks: 47 ([origin.ipset](networks/ipv6/origin.ipset))
 
 ## Blizzard Entertainment
 - IPv4 Networks: 9 ([blizzard_entertainment.ipset](networks/ipv4/blizzard_entertainment.ipset))
@@ -87,12 +87,12 @@ chmod +x load-networks.sh
 - IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
 
 ## Facebook
-- IPv4 Networks: 632 ([facebook.ipset](networks/ipv4/facebook.ipset))
+- IPv4 Networks: 630 ([facebook.ipset](networks/ipv4/facebook.ipset))
 - IPv6 Networks: 455 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
 - Total IPv4 Networks: 2984
-- Total IPv6 Networks: 1386
+- Total IPv6 Networks: 1388
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)
