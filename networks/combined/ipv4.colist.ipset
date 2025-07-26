@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-07-23 01:05:17 UTC
+# Last updated: 2025-07-26 01:03:14 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -2248,6 +2248,7 @@ ipset add facebook 57.144.212.0/23
 ipset add facebook 57.144.214.0/23
 ipset add facebook 57.144.216.0/23
 ipset add facebook 57.144.218.0/23
+ipset add facebook 57.144.220.0/23
 ipset add facebook 57.144.222.0/23
 ipset add facebook 66.220.144.0/21
 ipset add facebook 66.220.152.0/21
@@ -2605,12 +2606,12 @@ ipset add origin 209.214.215.192/29
 ipset add origin 209.214.71.56/29
 ipset add origin 209.215.14.248/29
 ipset add origin 209.215.43.0/29
-ipset add origin 209.65.243.48/29
 ipset add origin 216.249.1.0/28
 ipset add origin 216.61.35.40/29
 ipset add origin 216.61.35.56/29
 ipset add origin 24.137.60.96/30
 ipset add origin 24.149.203.96/28
+ipset add origin 24.169.94.8/29
 ipset add origin 24.39.197.96/29
 ipset add origin 47.23.111.192/29
 ipset add origin 47.44.114.160/29
@@ -2765,12 +2766,12 @@ ipset add origin 12.227.56.24/29
 ipset add origin 12.230.139.184/29
 ipset add origin 12.36.248.120/29
 ipset add origin 205.197.211.200/31
+ipset add origin 209.65.243.48/29
 ipset add origin 24.39.219.184/29
 ipset add origin 50.75.23.232/29
 ipset add origin 69.144.98.104/29
 ipset add origin 96.10.207.168/29
 ipset add origin 12.15.242.184/29
-ipset add origin 12.200.82.32/29
 ipset add origin 12.205.168.72/29
 ipset add origin 12.211.181.0/29
 ipset add origin 12.212.128.184/29
@@ -2831,8 +2832,8 @@ ipset add origin 209.214.215.192/29
 ipset add origin 209.214.71.56/29
 ipset add origin 209.215.14.248/29
 ipset add origin 209.215.43.0/29
-ipset add origin 209.65.243.48/29
 ipset add origin 24.137.60.96/30
+ipset add origin 24.169.94.8/29
 ipset add origin 24.39.197.96/29
 ipset add origin 47.44.114.160/29
 ipset add origin 47.47.175.104/29
@@ -2929,6 +2930,7 @@ ipset add twitter 69.12.62.0/24
 ipset add twitter 69.12.63.0/24
 ipset add twitter 69.195.160.0/24
 ipset add twitter 69.195.162.0/24
+ipset add twitter 69.195.166.0/24
 ipset add twitter 69.195.168.0/24
 ipset add twitter 69.195.174.0/24
 ipset add twitter 69.195.178.0/24

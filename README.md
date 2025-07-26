@@ -1,5 +1,5 @@
 # Network Lists
-Last update: 2025-07-23 00:58:07 UTC
+Last update: 2025-07-26 00:55:55 UTC
 
 ## Quick Start
 
@@ -77,7 +77,7 @@ chmod +x load-networks.sh
 
 ## Origin
 - IPv4 Networks: 323 ([origin.ipset](networks/ipv4/origin.ipset))
-- IPv6 Networks: 47 ([origin.ipset](networks/ipv6/origin.ipset))
+- IPv6 Networks: 48 ([origin.ipset](networks/ipv6/origin.ipset))
 
 ## Blizzard Entertainment
 - IPv4 Networks: 9 ([blizzard_entertainment.ipset](networks/ipv4/blizzard_entertainment.ipset))
@@ -88,16 +88,16 @@ chmod +x load-networks.sh
 - IPv6 Networks: 41 ([netflix.ipset](networks/ipv6/netflix.ipset))
 
 ## Twitter
-- IPv4 Networks: 79 ([twitter.ipset](networks/ipv4/twitter.ipset))
+- IPv4 Networks: 80 ([twitter.ipset](networks/ipv4/twitter.ipset))
 - IPv6 Networks: 4 ([twitter.ipset](networks/ipv6/twitter.ipset))
 
 ## Facebook
-- IPv4 Networks: 630 ([facebook.ipset](networks/ipv4/facebook.ipset))
+- IPv4 Networks: 631 ([facebook.ipset](networks/ipv4/facebook.ipset))
 - IPv6 Networks: 455 ([facebook.ipset](networks/ipv6/facebook.ipset))
 
 ## Summary
-- Total IPv4 Networks: 2985
-- Total IPv6 Networks: 1388
+- Total IPv4 Networks: 2987
+- Total IPv6 Networks: 1389
 - Combined IPv4 List: [ipv4.colist.ipset](networks/combined/ipv4.colist.ipset)
 - Combined IPv6 List: [ipv6.colist.ipset](networks/combined/ipv6.colist.ipset)
 - Loader Script: [load-networks.sh](networks/load-networks.sh)
