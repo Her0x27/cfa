@@ -1,5 +1,5 @@
 # Combined IPv4 networks
-# Last updated: 2025-07-26 01:03:14 UTC
+# Last updated: 2025-07-29 01:13:03 UTC
 
 ipset add akamai 67.218.92.32/27
 ipset add akamai 72.249.197.128/25
@@ -2095,7 +2095,6 @@ ipset add facebook 157.240.192.0/24
 ipset add facebook 157.240.195.0/24
 ipset add facebook 157.240.196.0/24
 ipset add facebook 157.240.197.0/24
-ipset add facebook 157.240.198.0/24
 ipset add facebook 157.240.199.0/24
 ipset add facebook 157.240.200.0/24
 ipset add facebook 157.240.201.0/24
@@ -2125,7 +2124,6 @@ ipset add facebook 157.240.234.0/24
 ipset add facebook 157.240.236.0/24
 ipset add facebook 157.240.237.0/24
 ipset add facebook 157.240.238.0/24
-ipset add facebook 157.240.239.0/24
 ipset add facebook 157.240.24.0/24
 ipset add facebook 157.240.241.0/24
 ipset add facebook 157.240.242.0/24
@@ -2160,8 +2158,6 @@ ipset add facebook 163.70.132.0/24
 ipset add facebook 163.70.137.0/24
 ipset add facebook 163.70.143.0/24
 ipset add facebook 163.70.144.0/24
-ipset add facebook 163.70.145.0/24
-ipset add facebook 163.70.146.0/24
 ipset add facebook 163.70.147.0/24
 ipset add facebook 163.70.151.0/24
 ipset add facebook 163.70.152.0/24
@@ -2186,7 +2182,6 @@ ipset add facebook 31.13.70.0/24
 ipset add facebook 31.13.71.0/24
 ipset add facebook 31.13.72.0/24
 ipset add facebook 31.13.73.0/24
-ipset add facebook 31.13.76.0/24
 ipset add facebook 31.13.79.0/24
 ipset add facebook 31.13.80.0/24
 ipset add facebook 31.13.82.0/24
@@ -2222,7 +2217,6 @@ ipset add facebook 57.144.138.0/23
 ipset add facebook 57.144.140.0/23
 ipset add facebook 57.144.142.0/23
 ipset add facebook 57.144.144.0/23
-ipset add facebook 57.144.146.0/23
 ipset add facebook 57.144.148.0/23
 ipset add facebook 57.144.150.0/23
 ipset add facebook 57.144.152.0/23
@@ -2931,7 +2925,6 @@ ipset add twitter 69.12.63.0/24
 ipset add twitter 69.195.160.0/24
 ipset add twitter 69.195.162.0/24
 ipset add twitter 69.195.166.0/24
-ipset add twitter 69.195.168.0/24
 ipset add twitter 69.195.174.0/24
 ipset add twitter 69.195.178.0/24
 ipset add twitter 69.195.179.0/24
@@ -2959,6 +2952,7 @@ ipset add youtube 136.22.135.0/24
 ipset add youtube 136.22.136.0/24
 ipset add youtube 136.22.137.0/24
 ipset add youtube 136.22.138.0/24
+ipset add youtube 136.22.139.0/24
 ipset add youtube 136.22.140.0/24
 ipset add youtube 136.22.141.0/24
 ipset add youtube 176.126.58.0/24

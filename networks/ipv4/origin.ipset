@@ -1,5 +1,5 @@
 # IPv4 networks for Origin
-# Last updated: 2025-07-26 01:00:34 UTC
+# Last updated: 2025-07-29 01:09:35 UTC
 
 ipset add origin 209.212.179.80/28
 ipset add origin 216.116.102.128/27
