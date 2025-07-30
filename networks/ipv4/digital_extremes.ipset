@@ -1,5 +1,5 @@
 # IPv4 networks for Digital Extremes
-# Last updated: 2025-07-29 01:03:40 UTC
+# Last updated: 2025-07-30 00:58:36 UTC
 
 ipset add digital_extremes 64.140.115.248/29
 ipset add digital_extremes 96.47.186.0/24
